@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Hello World</string>
-    <string name="lookin_fabulous">Hey there, World. Lookin' fabulous!</string>
+    <string name="lookin_fabulous">Hey there, World. Lookin\' fabulous!</string>
     <string name="response">Hello This is World. Nice to hear from you</string>
 </resources>
