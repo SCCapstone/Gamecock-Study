@@ -2,4 +2,7 @@
     <string name="app_name">Gamecock Study!</string>
     <string name="lookin_fabulous">Hey there, World. Lookin\' fabulous!</string>
     <string name="response">Hello This is World. Nice to hear from you</string>
+    <string name="my_study_events">My Study Events</string>
+    <string name="create_study_event">Create Study Event</string>
+    <string name="find_study_event">Find Study Event</string>
 </resources>
