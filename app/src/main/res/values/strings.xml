@@ -5,4 +5,5 @@
     <string name="my_study_events">My Study Events</string>
     <string name="create_study_event">Create Study Event</string>
     <string name="find_study_event">Find Study Event</string>
+    <string name="title_activity_create_group">Create Group</string>
 </resources>
