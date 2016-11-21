@@ -49,11 +49,11 @@
     <ImageButton
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        app:srcCompat="@mipmap/book_study_room"
         android:scaleType="fitXY"
         android:background="@android:color/transparent"
         android:layout_margin="10dp"
         android:id="@+id/study_room_button" />
+    '<!--'app:srcCompat="@mipmap/book_study_room" '-->'
 
     <Button
         android:text="CREATE"
