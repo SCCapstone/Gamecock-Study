@@ -19,21 +19,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:inputType="text"
+        <TextView
             android:text="Title"
-            android:ems="10"
-            android:id="@+id/group_title" />
-
-        <EditText
             android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:inputType="date"
-            android:ems="10"
-            android:id="@+id/group_date"
-            android:text="Date" />
+            android:layout_height="80dp"
+            android:id="@+id/Title"
+            android:layout_margin="10dp"
+            android:textSize="30sp" />
+
+        <TextView
+            android:text="Date"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/date"
+            android:layout_margin="10dp"
+            android:textSize="30sp" />
 
         <ImageButton
             android:layout_width="100dp"
@@ -44,6 +44,23 @@
             android:scaleType="fitXY"
             android:background="@color/colorPrimary"
             android:id="@+id/imageButton" />
+
+        <TextView
+            android:text="Location"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/Location"
+            tools:text="Location"
+            android:layout_margin="10dp"
+            android:textSize="30sp" />
+
+        <TextView
+            android:text="Host"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:id="@+id/host"
+            android:layout_margin="10dp"
+            android:textSize="30sp" />
 
     </LinearLayout>
 </LinearLayout>
