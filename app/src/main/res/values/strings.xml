@@ -7,4 +7,5 @@
     <string name="find_study_event">Find Study Event</string>
     <string name="title_activity_create_group">Create Group</string>
     <string name="title_activity_group_name_screen">Group Name</string>
+    <string name="title_activity_search_screen">Search Screen</string>
 </resources>
