@@ -62,5 +62,6 @@
         android:background="@color/colorPrimary"
         android:layout_width="100dp"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:textColor="@color/common_google_signin_btn_text_dark_default" />
 </LinearLayout>

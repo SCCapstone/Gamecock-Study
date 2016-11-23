@@ -25,6 +25,14 @@
         <activity
             android:name=".CreateGroup"
             android:label="@string/title_activity_create_group"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GroupNameScreen"
+            android:label="@string/title_activity_group_name_screen"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SearchScreen"
+            android:label="@string/title_activity_search_screen"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
