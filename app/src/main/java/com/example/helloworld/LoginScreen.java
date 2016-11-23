@@ -15,7 +15,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class loginScreen extends AppCompatActivity implements View.OnClickListener {
+public class LoginScreen extends AppCompatActivity implements View.OnClickListener {
 
 
     private static final String TAG = "emailPass";
@@ -39,7 +39,7 @@ public class loginScreen extends AppCompatActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loginscreen);
+        setContentView(R.layout.activity_login_screen);
 
         // Buttons
         findViewById(R.id.sign_in_button).setOnClickListener(this);
@@ -93,7 +93,7 @@ public class loginScreen extends AppCompatActivity implements View.OnClickListen
                         Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
 
                         if (task.isSuccessful() == false) {
-                            Toast.makeText(loginScreen.this, "1",
+                            Toast.makeText(LoginScreen.this, "1",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }
