@@ -47,10 +47,11 @@ public class Main2Activity extends AppCompatActivity {
         toast.show();
 
     }
+    //Switch Activity Method
+    public void createEvent(View view) {
 
-    public void createEvent(View v) {
-
-        tToast("create event button clicked");
+        Intent intent = new Intent(Main2Activity.this, CreateGroup.class);
+        startActivity(intent);
 
     }
 
@@ -80,6 +81,7 @@ public class Main2Activity extends AppCompatActivity {
         toast.show();
 
     }
+
 
 
 
