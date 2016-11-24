@@ -181,4 +181,16 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
             signIn(emailField.getText().toString(), passwordField.getText().toString());
         }
     }
+
+    public void signInClicked(View view)
+    {
+        Intent intent = new Intent(LoginScreen.this, Main2Activity.class);
+        startActivity(intent);
+    }
+
+    public void createButtonClicked(View view)
+    {
+        Intent intent = new Intent(LoginScreen.this, Main2Activity.class);
+        startActivity(intent);
+    }
 }
