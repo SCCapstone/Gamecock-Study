@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "245026684575",
+    "firebase_url": "https://gamecockstudy-5e0b5.firebaseio.com",
+    "project_id": "gamecockstudy-5e0b5",
+    "storage_bucket": "gamecockstudy-5e0b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:245026684575:android:2afc2cbb2b4b3171",
+        "android_client_info": {
+          "package_name": "com.example.helloworld"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "245026684575-qnue3i9g241r0ibk8ol23ssnnt2keoar.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.helloworld",
+            "certificate_hash": "7A2581D9DE75C19328800BF25A8DD2DB6F978874"
+          }
+        },
+        {
+          "client_id": "245026684575-fu72pfiektdnnc1470qf1gutdg3ina0c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.helloworld",
+            "certificate_hash": "F1085DEC7E6369AA19EDB9CEF27379357A9584BF"
+          }
+        },
+        {
+          "client_id": "245026684575-pr9aelp5rjnsj8935itjoec6vibqr6m9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHR4cnW-RM_D_ob3SuSvuuK7M8APhCtYg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "245026684575-pr9aelp5rjnsj8935itjoec6vibqr6m9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

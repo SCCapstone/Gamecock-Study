@@ -21,7 +21,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main2Activity" />
+        <activity android:name=".Main2Activity"
+            android:exported="true"/>
         <activity
             android:name=".CreateGroup"
             android:label="@string/title_activity_create_group"
@@ -38,7 +39,11 @@
             android:name=".NotificationActivity"
             android:label="@string/title_activity_notification"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".PushActivity"></activity>
+        <activity android:name=".PushActivity" />
+        <activity
+            android:name=".MyEvents"
+            android:label="@string/title_activity_my_events"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

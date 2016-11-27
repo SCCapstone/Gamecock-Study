@@ -16,6 +16,7 @@ import android.view.MenuItem;
 //this is the navigation screen that will take you to events, find events, etc.
 //almost positive it is right
 //waiting on james to check login screen
+//modified on 11/27/17
 
 
 public class Main2Activity extends AppCompatActivity {
@@ -33,9 +34,13 @@ public class Main2Activity extends AppCompatActivity {
     //Create Study Event Button
     //My Study Events button
 
-    public void StudyEventButton(View v) {
+
+    //Connect button with search screen
+    public void StudyEventButton(View view) {
 
         tToast("study event button clicked");
+        Intent intent = new Intent(Main2Activity.this, SearchScreen.class);
+        startActivity(intent);
 
     }
 
@@ -47,7 +52,8 @@ public class Main2Activity extends AppCompatActivity {
         toast.show();
 
     }
-    //Switch Activity Method
+
+    //Switch Activity Method to create group/event page
     public void createEvent(View view) {
 
         Intent intent = new Intent(Main2Activity.this, CreateGroup.class);
@@ -66,9 +72,12 @@ public class Main2Activity extends AppCompatActivity {
     }
 
 
-    public void myEvents(View v) {
+    public void myEvents(View view) {
 
         jToast(" my study event button clicked");
+        Intent intent = new Intent(Main2Activity.this, MyEvents.class);
+        startActivity(intent);
+
 
     }
 
