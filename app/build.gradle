@@ -17,6 +17,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    
+     packagingOptions{
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+        exclude 'META-INF/NOTICE'
+ 
+    }
 }
 
 dependencies {
@@ -31,7 +38,7 @@ dependencies {
     compile 'com.android.support:design:24.2.1'
     testCompile 'junit:junit:4.12'
     
-    compile 'com.firebase:firebase-client-android:2.4.0'
+    compile 'com.firebase:firebase-client-android:9.8.0'
 }
 
 
