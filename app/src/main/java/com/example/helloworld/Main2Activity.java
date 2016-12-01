@@ -1,4 +1,7 @@
 package com.example.helloworld;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import android.support.v7.app.AppCompatActivity;
@@ -20,12 +23,22 @@ import android.view.MenuItem;
 
 
 public class Main2Activity extends AppCompatActivity {
+    private EditText editLocation;
+    private EditText editTime;
+    private TextView textViewPersons;
+    private Button create_room;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-
+//        setContentView(R.layout.activity_main2);
+//        buttonSave = (Button) findViewById(R.id.buttonSave);
+//        editTextName = (EditText) findViewById(R.id.editTextName);
+//        editTextAddress = (EditText) findViewById(R.id.editTextAddress);
+//
+//        textViewPersons = (TextView) findViewById(R.id.textViewPersons);
 
     }
 
