@@ -38,20 +38,13 @@ public class Main2Activity extends AppCompatActivity {
     //Connect button with search screen
     public void StudyEventButton(View view) {
 
-        tToast("study event button clicked");
+
         Intent intent = new Intent(Main2Activity.this, SearchScreen.class);
         startActivity(intent);
 
     }
 
-    private void tToast(String s) {
 
-        Context context = getApplicationContext();
-        int duration = Toast.LENGTH_LONG;
-        Toast toast = Toast.makeText(context, s, duration);
-        toast.show();
-
-    }
 
     //Switch Activity Method to create group/event page
     public void createEvent(View view) {
@@ -62,19 +55,12 @@ public class Main2Activity extends AppCompatActivity {
     }
 
 
-    private void fToast(String d) {
 
-        Context context = getApplicationContext();
-        int duration = Toast.LENGTH_LONG;
-        Toast toast = Toast.makeText(context, d, duration);
-        toast.show();
-
-    }
 
 
     public void myEvents(View view) {
 
-        jToast(" my study event button clicked");
+
         Intent intent = new Intent(Main2Activity.this, MyEvents.class);
         startActivity(intent);
 
@@ -82,14 +68,7 @@ public class Main2Activity extends AppCompatActivity {
     }
 
 
-    private void jToast(String a) {
 
-        Context context = getApplicationContext();
-        int duration = Toast.LENGTH_LONG;
-        Toast toast = Toast.makeText(context, a, duration);
-        toast.show();
-
-    }
 
 
 
