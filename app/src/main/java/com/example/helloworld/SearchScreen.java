@@ -127,12 +127,12 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        memberCount = memberCount + 1;
 
 
 
-
-        myRef.child("User").setValue(LoginScreen.email);
-        myRef.child("Members").setValue(   memberCount + 1   ); //known bug!! Single user can repeatedly join and increase group count!
+        myRef.child("User" + memberCount).setValue(LoginScreen.email);
+        myRef.child("Members").setValue(   memberCount    ); //known bug!! Single user can repeatedly join and increase group count!
         //myRef.child(LoginScreen.email).setValue(LoginScreen.email);
     }
 
