@@ -9,8 +9,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import static com.example.helloworld.R.id.create_room;
 import static com.example.helloworld.R.id.joinButton;
@@ -22,6 +25,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     Button aButton2;
     private EditText searchField;
+    public int memberCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -38,15 +42,15 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
         aButton2 = (Button)findViewById(joinButton);
         aButton2.setOnClickListener(this);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//
+//            }
+//        });
 
 
 
@@ -104,12 +108,32 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
 
     public void joinGroup()
     {
+
         searchField = (EditText) findViewById(R.id.subject);
         String searchedGroup = searchField.getText().toString();
 
         DatabaseReference myRef = database.getReference(searchedGroup);
 
+
+
+        myRef.child("Members").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                // data available in snapshot.value()
+                memberCount = snapshot.getValue(int.class);
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+
+
+
+
         myRef.child("User").setValue(LoginScreen.email);
+        myRef.child("Members").setValue(   memberCount + 1   ); //known bug!! Single user can repeatedly join and increase group count!
+        //myRef.child(LoginScreen.email).setValue(LoginScreen.email);
     }
 
 }

@@ -53,16 +53,16 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 
 
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        } );
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View view)
+//            {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        } );
     }
 
 
@@ -163,12 +163,14 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 //            }
 //
 //        } );
-        myRef.child("User").setValue(LoginScreen.email);
+        myRef.child("Host User").setValue(LoginScreen.email);
+        //myRef.child("").setValue("");
 
         myRef.child("Location").setValue(groupLocation);
         myRef.child("Date").setValue(groupDate);
         myRef.child("Time").setValue(groupTime);
         myRef.child("Description").setValue(groupDescription);
+        myRef.child("Members").setValue(1);
 
 
 
