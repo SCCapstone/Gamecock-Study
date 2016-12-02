@@ -16,6 +16,14 @@
 
     <EditText
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:text="Group name"
+        android:ems="10"
+        android:id="@+id/Name" />
+
+    <EditText
+        android:layout_width="match_parent"
         android:ems="10"
         android:id="@+id/Location"
         android:inputType="text"
@@ -53,12 +61,13 @@
         android:background="@android:color/transparent"
         android:layout_margin="10dp"
         android:id="@+id/study_room_button" />
-    '<!--'app:srcCompat="@mipmap/book_study_room" '-->'
+
 
     <Button
         android:text="CREATE"
         android:layout_height="wrap_content"
         android:id="@+id/create_room"
+        android:onClick="@+id/createButton"
         android:background="@color/colorPrimary"
         android:layout_width="100dp"
         android:layout_gravity="center_horizontal"

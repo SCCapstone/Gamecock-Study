@@ -21,6 +21,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
     private static final String TAG = "emailPass";
     private EditText emailField;
     private EditText passwordField;
+    public static String email;
 
     // declare auth and listener
     private FirebaseAuth auth;
@@ -110,7 +111,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
     private boolean check()
     {
         boolean check = true;
-        String email = emailField.getText().toString();
+        email = emailField.getText().toString();
         if (TextUtils.isEmpty(email))
         {
             emailField.setError("Enter an email.");
