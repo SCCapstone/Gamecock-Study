@@ -1,5 +1,5 @@
 package com.example.helloworld;
-
+import com.google.firebase.iid.FirebaseInstanceId;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -72,6 +72,10 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View v)
     {
+        String tkn = FirebaseInstanceId.getInstance().getToken();
+        Toast.makeText(CreateGroup.this, "Current token ["+tkn+"]",
+                Toast.LENGTH_LONG).show();
+        Log.d("App", "Token ["+tkn+"]");
 
         //if clicked button2, we go to addData(), where data is written to the DB
         if(v.getId() == create_room)

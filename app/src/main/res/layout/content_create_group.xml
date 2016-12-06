@@ -14,63 +14,75 @@
     tools:showIn="@layout/activity_create_group"
     android:orientation="vertical">
 
-    <EditText
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:text="Group name"
-        android:ems="10"
-        android:id="@+id/Name" />
+        android:layout_height="match_parent">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:ems="10"
-        android:id="@+id/Location"
-        android:inputType="text"
-        android:hint="Location:"
-        android:layout_height="90dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
 
-    <EditText
-        android:layout_width="match_parent"
-        android:inputType="time"
-        android:ems="10"
-        android:id="@+id/Time"
-        android:hint="Time:"
-        android:layout_height="90dp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:text="Group name"
+                android:ems="10"
+                android:id="@+id/Name" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:inputType="date"
-        android:ems="10"
-        android:id="@+id/Date"
-        android:hint="Date:"
-        android:layout_height="90dp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:ems="10"
+                android:id="@+id/Location"
+                android:inputType="text"
+                android:hint="Location:"
+                android:layout_height="90dp" />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:inputType="text"
-        android:ems="10"
-        android:id="@+id/Description"
-        android:hint="Description"
-        android:layout_height="90dp" />
+            <EditText
+                android:layout_width="match_parent"
+                android:inputType="time"
+                android:ems="10"
+                android:id="@+id/Time"
+                android:hint="Time:"
+                android:layout_height="90dp" />
 
-    <ImageButton
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:scaleType="fitXY"
-        android:background="@android:color/transparent"
-        android:layout_margin="10dp"
-        android:id="@+id/study_room_button" />
+            <EditText
+                android:layout_width="match_parent"
+                android:inputType="date"
+                android:ems="10"
+                android:id="@+id/Date"
+                android:hint="Date:"
+                android:layout_height="90dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:inputType="text"
+                android:ems="10"
+                android:id="@+id/Description"
+                android:hint="Description"
+                android:layout_height="90dp" />
+
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:scaleType="fitXY"
+                android:background="@mipmap/book_study_room"
+                android:layout_margin="10dp"
+                android:id="@+id/study_room_button" />
+
+            <Button
+                android:text="CREATE"
+                android:layout_height="wrap_content"
+                android:id="@+id/create_room"
+                android:onClick="@+id/createButton"
+                android:background="@color/colorPrimary"
+                android:layout_width="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:textColor="@color/common_google_signin_btn_text_dark_default" />
+        </LinearLayout>
+    </ScrollView>
 
 
-    <Button
-        android:text="CREATE"
-        android:layout_height="wrap_content"
-        android:id="@+id/create_room"
-        android:onClick="@+id/createButton"
-        android:background="@color/colorPrimary"
-        android:layout_width="100dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="10dp"
-        android:textColor="@color/common_google_signin_btn_text_dark_default" />
 </LinearLayout>
