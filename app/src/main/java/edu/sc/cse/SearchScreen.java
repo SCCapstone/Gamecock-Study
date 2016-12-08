@@ -1,8 +1,6 @@
-package com.example.helloworld;
+package edu.sc.cse;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -14,9 +12,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import static com.example.helloworld.R.id.create_room;
-import static com.example.helloworld.R.id.joinButton;
 
 public class SearchScreen extends AppCompatActivity implements View.OnClickListener
 {
@@ -39,7 +34,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
         setSupportActionBar(toolbar);
 
 
-        aButton2 = (Button)findViewById(joinButton);
+        aButton2 = (Button)findViewById(edu.sc.cse.R.id.joinButton);
         aButton2.setOnClickListener(this);
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -62,7 +57,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
     {
 
         //if clicked button2, we go to addData(), where data is written to the DB
-        if(v.getId() == joinButton)
+        if(v.getId() == edu.sc.cse.R.id.joinButton)
         {
             joinGroup();
         }

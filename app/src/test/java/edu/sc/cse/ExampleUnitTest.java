@@ -1,4 +1,4 @@
-package com.example.helloworld;
+package edu.sc.cse;
 
 import org.junit.Test;
 

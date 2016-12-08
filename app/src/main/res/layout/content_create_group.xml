@@ -10,14 +10,13 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.helloworld.CreateGroup"
+    tools:context="edu.sc.cse.CreateGroup"
     tools:showIn="@layout/activity_create_group"
     android:orientation="vertical">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="20dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,9 +27,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:inputType="textPersonName"
-                android:text="Group name"
                 android:ems="10"
-                android:id="@+id/Name" />
+                android:id="@+id/Name"
+                android:hint="Group Name:" />
 
             <EditText
                 android:layout_width="match_parent"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.helloworld">
+    package="edu.sc.cse">
 
     <service android:name=".MyFirebaseInstanceIDService">
         <intent-filter>
@@ -24,30 +24,30 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginScreen">
+        <activity android:name="edu.sc.cse.LoginScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Main2Activity"
+        <activity android:name="edu.sc.cse.Main2Activity"
             android:exported="true"/>
         <activity
-            android:name=".CreateGroup"
+            android:name="edu.sc.cse.CreateGroup"
             android:label="@string/title_activity_create_group"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".GroupNameScreen"
+            android:name="edu.sc.cse.GroupNameScreen"
             android:label="@string/title_activity_group_name_screen"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".SearchScreen"
+            android:name="edu.sc.cse.SearchScreen"
             android:label="@string/title_activity_search_screen"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".PushActivity" />
+        <activity android:name="edu.sc.cse.PushActivity" />
         <activity
-            android:name=".MyEvents"
+            android:name="edu.sc.cse.MyEvents"
             android:label="@string/title_activity_my_events"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>

@@ -1,4 +1,4 @@
-package com.example.helloworld;
+package edu.sc.cse;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -6,9 +6,7 @@ import android.app.NotificationManager;
 import android.content.Intent;
 import android.app.PendingIntent;
 import android.support.v4.app.NotificationCompat;
-import android.support.v7.app.ActionBarActivity;
 import android.view.View;
-import android.app.NotificationManager;
 
 
 public class PushActivity extends AppCompatActivity {

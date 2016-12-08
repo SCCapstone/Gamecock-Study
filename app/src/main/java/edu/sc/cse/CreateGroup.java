@@ -1,27 +1,23 @@
-package com.example.helloworld;
+package edu.sc.cse;
+import edu.sc.cse.R;
 import com.google.firebase.iid.FirebaseInstanceId;
+
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-//import static com.example.helloworld.R.id.email;
-import static com.example.helloworld.R.id.create_room;
-//import static com.example.helloworld.R.id.joinButton;
+//import static R.id.email;
+
+//import static R.id.joinButton;
 
 public class CreateGroup extends AppCompatActivity implements View.OnClickListener
 {
@@ -48,7 +44,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        aButton = (Button)findViewById(create_room);
+        aButton = (Button)findViewById(edu.sc.cse.R.id.create_room);
         aButton.setOnClickListener(this);
 
 
@@ -78,7 +74,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         Log.d("App", "Token ["+tkn+"]");
 
         //if clicked button2, we go to addData(), where data is written to the DB
-        if(v.getId() == create_room)
+        if(v.getId() == edu.sc.cse.R.id.create_room)
         {
             addGroup();
         }
@@ -121,6 +117,12 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 //
 //
 //        }
+
+
+        Intent intent = new Intent(CreateGroup.this, Main2Activity.class);
+        startActivity(intent);
+
+
     }
 
     public void addGroup()

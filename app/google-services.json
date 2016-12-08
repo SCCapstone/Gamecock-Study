@@ -65,6 +65,37 @@
           "status": 2
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:245026684575:android:39047edfa61fed94",
+        "android_client_info": {
+          "package_name": "edu.sc.cse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "245026684575-pr9aelp5rjnsj8935itjoec6vibqr6m9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHR4cnW-RM_D_ob3SuSvuuK7M8APhCtYg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
     }
   ],
   "configuration_version": "1"
