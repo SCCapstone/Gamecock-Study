@@ -106,6 +106,13 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                         }
                     }
                 } );
+
+        createUsername(email);
+    }
+
+    public static String createUsername(String anEmail) {
+
+        return anEmail.split("@")[0];
     }
 
     private boolean check()
