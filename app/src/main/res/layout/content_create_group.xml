@@ -69,6 +69,7 @@
                 android:scaleType="fitXY"
                 android:background="@mipmap/book_study_room"
                 android:layout_margin="10dp"
+                android:onClick="studyRoomButtonClick"
                 android:id="@+id/study_room_button" />
 
             <Button
