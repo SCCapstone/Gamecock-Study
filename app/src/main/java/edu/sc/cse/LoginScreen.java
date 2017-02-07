@@ -121,6 +121,8 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                 } );
 
 
+
+
         //Still trying to fix the user count. Does not fully work, but has no negative effect on app.
         DatabaseReference myRef = database.getReference();
         myRef.child("Number of users").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -139,6 +141,12 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
         });
 
 
+        createUsername(email);
+
+
+
+
+
 
         myRef = database.getReference("Users");
         myRef.child("User " + Integer.toString(userCount+1)).setValue(email);
@@ -146,6 +154,14 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
 
         updateUsercount(userCount);
 
+
+
+
+    }
+
+    public static String createUsername(String anEmail) {
+
+        return anEmail.split("@")[0];
     }
 
     ///////////////////////////////////////////////////////////////////
@@ -233,6 +249,8 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
             signIn(emailField.getText().toString(), passwordField.getText().toString());
         }
     }
+
+
 
 
 }
