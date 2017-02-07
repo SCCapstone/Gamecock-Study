@@ -30,12 +30,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
     private EditText descriptionField;
     private EditText nameField;
 
-
     Button aButton;
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -60,10 +55,6 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 //            }
 //        } );
     }
-
-
-
-
 
     @Override
     public void onClick(View v)
@@ -117,12 +108,8 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 //
 //
 //        }
-
-
         Intent intent = new Intent(CreateGroup.this, Main2Activity.class);
         startActivity(intent);
-
-
     }
 
     public void addGroup()
@@ -142,8 +129,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         descriptionField = (EditText) findViewById(R.id.Description);
         String groupDescription = descriptionField.getText().toString();
 
-
-        DatabaseReference myRef = database.getReference(groupName);
+        DatabaseReference myRef = database.getReference("Groups");
 
 //        //DatabaseReference myRef = database.getReference(aGroupName);
 //        myRef.addValueEventListener(new ValueEventListener()
@@ -169,6 +155,9 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 //            }
 //
 //        } );
+        myRef = database.getReference("Groups/"+groupName);
+        //myRef.child("Groups/"groupName).setValue();
+        //myRef = database.getReference(groupName);
         myRef.child("Host User").setValue(LoginScreen.email);
         //myRef.child("").setValue("");
 
@@ -177,21 +166,5 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         myRef.child("Time").setValue(groupTime);
         myRef.child("Description").setValue(groupDescription);
         myRef.child("Members").setValue(1);
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
-
-
 }

@@ -1,7 +1,11 @@
 package edu.sc.cse;
 
 import org.junit.Test;
+import java.util.regex.Pattern;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.*;
 
 /**
@@ -12,6 +16,6 @@ import static org.junit.Assert.*;
 public class ExampleUnitTest {
     @Test
     public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+        assertThat( (2+2) == 4, is(true) );
     }
 }

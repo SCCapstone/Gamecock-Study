@@ -15,6 +15,11 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginScreen extends AppCompatActivity implements View.OnClickListener
 {
@@ -23,9 +28,14 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
     private EditText passwordField;
     public static String email;
 
+    public int userCount;
+
     // declare auth and listener
     private FirebaseAuth auth;
     private FirebaseAuth.AuthStateListener authListener;
+
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -103,10 +113,51 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                         {
                             Toast.makeText(LoginScreen.this, "Account Creation Successful!",
                                     Toast.LENGTH_SHORT).show();
+
+
                         }
                     }
+
                 } );
+
+
+        //Still trying to fix the user count. Does not fully work, but has no negative effect on app.
+        DatabaseReference myRef = database.getReference();
+        myRef.child("Number of users").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                // data available in snapshot.value()
+                userCount = snapshot.getValue(int.class);
+                Toast.makeText(LoginScreen.this, Integer.toString(userCount),
+                        Toast.LENGTH_SHORT).show();
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+
+        });
+
+
+
+        myRef = database.getReference("Users");
+        myRef.child("User " + Integer.toString(userCount+1)).setValue(email);
+        //myRef.setValue(userCount);
+
+        updateUsercount(userCount);
+
     }
+
+    ///////////////////////////////////////////////////////////////////
+    private void updateUsercount(int count)
+    {
+        DatabaseReference myRef = database.getReference();
+        count = count+1;
+        myRef = database.getReference();
+        myRef.child("Number of users").setValue(userCount+1);
+
+    }
+
 
     private boolean check()
     {
