@@ -26,7 +26,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:inputType="textPersonName"
+                android:inputType="textCapSentences|textPersonName"
                 android:ems="10"
                 android:id="@+id/Name"
                 android:hint="Group Name:" />
@@ -35,25 +35,50 @@
                 android:layout_width="match_parent"
                 android:ems="10"
                 android:id="@+id/Location"
-                android:inputType="text"
+                android:inputType="textCapSentences|text"
                 android:hint="Location:"
                 android:layout_height="80dp" />
 
-            <EditText
-                android:layout_width="match_parent"
-                android:inputType="time"
-                android:ems="10"
-                android:id="@+id/Time"
-                android:hint="Time:"
-                android:layout_height="80dp" />
+            <TextView
+                android:id="@+id/displayTimeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
 
-            <EditText
+            <Button
+                android:id="@+id/chooseTimeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Set Time"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:textSize="20dp" />
+
+
+
+            <!--<EditText-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:inputType="time"-->
+                <!--android:ems="10"-->
+                <!--android:id="@+id/Time"-->
+                <!--android:hint="Time:"-->
+                <!--android:layout_height="80dp" />-->
+
+            <DatePicker
                 android:layout_width="match_parent"
-                android:inputType="date"
-                android:ems="10"
-                android:id="@+id/Date"
-                android:hint="Date:"
-                android:layout_height="80dp" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:id="@+id/datePicker" />
+
+            <!--<EditText-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:inputType="date"-->
+                <!--android:ems="10"-->
+                <!--android:id="@+id/Date"-->
+                <!--android:hint="Date:"-->
+                <!--android:layout_height="80dp" />-->
 
             <EditText
                 android:layout_width="match_parent"
