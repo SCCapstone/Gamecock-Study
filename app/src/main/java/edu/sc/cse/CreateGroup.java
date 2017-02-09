@@ -4,6 +4,7 @@ import com.google.firebase.iid.FirebaseInstanceId;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -165,6 +166,14 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         myRef.child("Time").setValue(groupTime);
         myRef.child("Description").setValue(groupDescription);
         myRef.child("Members").setValue(1);
+
+    }
+
+    public void studyRoomButtonClick(View view) {
+        Uri uri = Uri.parse("http://libcal.library.sc.edu/"); // missing 'http://' will cause crashed
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
+
 
     }
 }

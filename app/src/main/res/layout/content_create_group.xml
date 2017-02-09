@@ -82,7 +82,7 @@
 
             <EditText
                 android:layout_width="match_parent"
-                android:inputType="text"
+                android:inputType="textCapSentences|text"
                 android:ems="10"
                 android:id="@+id/Description"
                 android:hint="Description"
