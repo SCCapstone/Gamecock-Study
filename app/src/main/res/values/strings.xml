@@ -14,19 +14,45 @@
 
     <string name="classes_prompt">Choose a class</string>
     <string-array name="classes_list">
+
+        <item>CSCE 101</item>
+        <item>CSCE 102</item>
         <item>CSCE 145</item>
-        <item>CSCE 190</item>
         <item>CSCE 146</item>
+        <item>CSCE 190</item>
+        <item>CSCE 204</item>
+        <item>CSCE 205</item>
+        <item>CSCE 206</item>
+        <item>CSCE 210</item>
         <item>CSCE 211</item>
         <item>CSCE 212</item>
         <item>CSCE 215</item>
         <item>CSCE 240</item>
+        <item>CSCE 274</item>
         <item>CSCE 311</item>
+        <item>CSCE 313</item>
+        <item>CSCE 317</item>
+        <item>CSCE 330</item>
         <item>CSCE 350</item>
         <item>CSCE 355</item>
         <item>CSCE 390</item>
         <item>CSCE 416</item>
         <item>CSCE 490</item>
         <item>CSCE 492</item>
+        <item>CSCE 513</item>
+        <item>CSCE 515</item>
+        <item>CSCE 520</item>
+        <item>CSCE 522</item>
+        <item>CSCE 531</item>
+        <item>CSCE 552</item>
+        <item>CSCE 557</item>
+        <item>CSCE 565</item>
+        <item>CSCE 567</item>
+        <item>CSCE 571</item>
+        <item>CSCE 572</item>
+        <item>CSCE 574</item>
+        <item>CSCE 580</item>
+        <item>CSCE 587</item>
+        <item>CSCE 590</item>
     </string-array>
 </resources>
