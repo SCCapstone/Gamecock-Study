@@ -11,9 +11,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -34,12 +37,16 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
     private TextView timeField;
     private DatePicker dateField;
     private EditText descriptionField;
-    private EditText nameField;
+    private Spinner nameField;
     Button aButton;
 
     //TimePicker
     Calendar c = Calendar.getInstance();
     TextView display;
+
+    // Spinner
+    private String[] states;
+    private Spinner spinner;
 
 
     @Override
@@ -57,6 +64,14 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         aButton = (Button) findViewById(edu.sc.cse.R.id.create_room);
         aButton.setOnClickListener(this);
 
+        // Spinner
+        states = getResources().getStringArray(R.array.classes_list);
+        spinner = (Spinner) findViewById(R.id.classes_spinner);
+
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, states);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(dataAdapter);
 
 
 
@@ -71,47 +86,61 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 //            }
 //        } );
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+
+            }
+        });
+
 
     }
 
-            @Override
-            public void onClick(View v) {
+    @Override
+    public void onClick(View v) {
 
 
-                switch (v.getId()) {
+        switch (v.getId()) {
 
-                    case R.id.chooseTimeButton:
-                        new TimePickerDialog(CreateGroup.this, t, c
-                                .get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE),
-                                true).show();
-                        break;
+            case R.id.chooseTimeButton:
+                new TimePickerDialog(CreateGroup.this, t, c
+                        .get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE),
+                        true).show();
+                break;
 
-                    case R.id.create_room:
-                        String tkn = FirebaseInstanceId.getInstance().getToken();
+            case R.id.create_room:
+                String tkn = FirebaseInstanceId.getInstance().getToken();
 
-                        //what is this for?
-                        //Toast.makeText(CreateGroup.this, "Current token ["+tkn+"]",
-                        //Toast.LENGTH_LONG).show();
+                //what is this for?
+                //Toast.makeText(CreateGroup.this, "Current token ["+tkn+"]",
+                //Toast.LENGTH_LONG).show();
 
-                        //Let usuer know they created a group!d
-                        Toast.makeText(CreateGroup.this,
-                                "Group Created!", Toast.LENGTH_LONG).show();
-                        Log.d("App", "Token [" + tkn + "]");
+                //Let usuer know they created a group!d
+                Toast.makeText(CreateGroup.this,
+                        "Group Created!", Toast.LENGTH_LONG).show();
+                Log.d("App", "Token [" + tkn + "]");
 
-                        //if clicked button2, we go to addData(), where data is written to the DB
-                        if (v.getId() == edu.sc.cse.R.id.create_room) {
-                            addGroup();
-                        }
-
-                        Intent intent = new Intent(CreateGroup.this, Main2Activity.class);
-                        startActivity(intent);
-                        break;
-
-                    default:
-                        break;
-
+                //if clicked button2, we go to addData(), where data is written to the DB
+                if (v.getId() == edu.sc.cse.R.id.create_room) {
+                    addGroup();
                 }
-            }
+
+                Intent intent = new Intent(CreateGroup.this, Main2Activity.class);
+                startActivity(intent);
+                break;
+
+            default:
+                break;
+
+        }
+    }
 
     TimePickerDialog.OnTimeSetListener t = new TimePickerDialog.OnTimeSetListener() {
 
@@ -129,8 +158,8 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 
     public void addGroup()
     {
-        nameField = (EditText) findViewById(R.id.Name);
-        String groupName = nameField.getText().toString();
+        nameField = (Spinner) findViewById(R.id.classes_spinner);
+        String groupName = nameField.getSelectedItem().toString();
 
         locationField = (EditText) findViewById(R.id.Location);
         String groupLocation = locationField.getText().toString();
