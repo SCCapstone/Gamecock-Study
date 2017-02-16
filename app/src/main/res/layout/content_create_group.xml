@@ -27,7 +27,9 @@
                 android:id="@+id/classes_spinner"
                 android:layout_width="fill_parent"
                 android:layout_height="80dp"
-                android:prompt="@string/classes_prompt" />
+                android:prompt="@string/classes_prompt"
+                android:spinnerMode="dialog"
+                style="@style/Widget.AppCompat.Spinner" />
 
             <!--<EditText-->
             <!--android:layout_width="match_parent"-->
@@ -43,6 +45,14 @@
                 android:id="@+id/Location"
                 android:inputType="textCapSentences|text"
                 android:hint="Location:"
+                android:layout_height="80dp" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:inputType="textCapSentences|text"
+                android:ems="10"
+                android:id="@+id/Description"
+                android:hint="Description"
                 android:layout_height="80dp" />
 
             <TextView
@@ -85,14 +95,6 @@
             <!--android:id="@+id/Date"-->
             <!--android:hint="Date:"-->
             <!--android:layout_height="80dp" />-->
-
-            <EditText
-                android:layout_width="match_parent"
-                android:inputType="textCapSentences|text"
-                android:ems="10"
-                android:id="@+id/Description"
-                android:hint="Description"
-                android:layout_height="80dp" />
 
             <ImageButton
                 android:layout_width="match_parent"
