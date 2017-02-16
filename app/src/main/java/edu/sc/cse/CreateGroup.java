@@ -24,8 +24,9 @@ import android.widget.Toast;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.Calendar;
-
+import java.util.List;
 
 
 public class CreateGroup extends AppCompatActivity implements View.OnClickListener
@@ -184,17 +185,19 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 
         descriptionField = (EditText) findViewById(R.id.Description);
         String groupDescription = descriptionField.getText().toString();
+        List<String> members = new ArrayList<String>();
 
+        DatabaseReference myRef = database.getReference("StudyGroup");
+        members.add(LoginScreen.email);
+        myRef.child(groupName).setValue(new StudyGroup(groupDate,groupDescription,groupLocation,members ,groupTime,groupName,LoginScreen.email));
 
-        DatabaseReference myRef = database.getReference(groupName);
-
-        myRef.child("Host User").setValue(LoginScreen.email);
-        //myRef.child("").setValue("");
-        myRef.child("Location").setValue(groupLocation);
-        myRef.child("Date").setValue(groupDate);
-        myRef.child("Time").setValue(groupTime);
-        myRef.child("Description").setValue(groupDescription);
-        myRef.child("Members").setValue(1);
+//        myRef.child("Host User").setValue(LoginScreen.email);
+//        //myRef.child("").setValue("");
+//        myRef.child("Location").setValue(groupLocation);
+//        myRef.child("Date").setValue(groupDate);
+//        myRef.child("Time").setValue(groupTime);
+//        myRef.child("Description").setValue(groupDescription);
+//        myRef.child("Members").setValue(1);
 
     }
 

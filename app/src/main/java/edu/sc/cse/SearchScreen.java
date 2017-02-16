@@ -13,6 +13,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SearchScreen extends AppCompatActivity implements View.OnClickListener
 {
 
@@ -21,7 +24,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
     Button aButton2;
     private EditText searchField;
     public int memberCount;
-
+    public List<String> members = new ArrayList<String>();
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -107,27 +110,30 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
         searchField = (EditText) findViewById(R.id.subject);
         String searchedGroup = searchField.getText().toString();
 
-        DatabaseReference myRef = database.getReference(searchedGroup);
+        DatabaseReference myRef = database.getReference("StudyGroup/" + searchedGroup);
 
 
+        String temp = myRef.child("members").toString();
 
-        myRef.child("Members").addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.child("members").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
+
             public void onDataChange(DataSnapshot snapshot) {
                 // data available in snapshot.value()
-                memberCount = snapshot.getValue(int.class);
+
+                members = snapshot.getValue(List.class);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-
-        memberCount = memberCount + 1;
+        members.add(LoginScreen.email);
+        //memberCount = memberCount + 1;
 
 
 
         myRef.child("User" + memberCount).setValue(LoginScreen.email);
-        myRef.child("Members").setValue(   memberCount    ); //known bug!! Single user can repeatedly join and increase group count!
+        myRef.child("members").setValue(members); //known bug!! Single user can repeatedly join and increase group count!
         //myRef.child(LoginScreen.email).setValue(LoginScreen.email);
     }
 
