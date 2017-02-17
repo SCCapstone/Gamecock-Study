@@ -113,7 +113,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
             case R.id.chooseTimeButton:
                 new TimePickerDialog(CreateGroup.this, t, c
                         .get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE),
-                        true).show();
+                        false).show();
                 break;
 
             case R.id.create_room:
@@ -146,13 +146,9 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
     TimePickerDialog.OnTimeSetListener t = new TimePickerDialog.OnTimeSetListener() {
 
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            String AM_PM ;
-            if(hourOfDay < 12) {
-                AM_PM = "AM";
-            } else {
-                AM_PM = "PM";
-            }
-            display.setText(hourOfDay + ":" + minute + " " + AM_PM);
+            int hour = hourOfDay % 12;
+            display.setText(String.format("%02d:%02d %s", hour == 0 ? 12 : hour,
+                    minute, hourOfDay < 12 ? "AM" : "PM"));
         }
     };
 
