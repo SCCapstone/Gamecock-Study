@@ -54,5 +54,39 @@
         <item>CSCE 580</item>
         <item>CSCE 587</item>
         <item>CSCE 590</item>
+        <item>ELCT 102</item>
+        <item>ELCT 201</item>
+        <item>ELCT 220</item>
+        <item>ELCT 221</item>
+        <item>ELCT 222</item>
+        <item>ELCT 301</item>
+        <item>ELCT 302</item>
+        <item>ELCT 321</item>
+        <item>ELCT 331</item>
+        <item>ELCT 350</item>
+        <item>ELCT 361</item>
+        <item>ELCT 363</item>
+        <item>ELCT 371</item>
+        <item>ELCT 403</item>
+        <item>ELCT 404</item>
+        <item>ELCT 499</item>
+        <item>ELCT 510</item>
+        <item>ELCT 531</item>
+        <item>ELCT 541</item>
+        <item>ELCT 553</item>
+        <item>ELCT 554</item>
+        <item>ELCT 559</item>
+        <item>ELCT 563</item>
+        <item>ELCT 732</item>
+        <item>ELCT 772</item>
+        <item>ELCT 797</item>
+        <item>ELCT 799</item>
+        <item>ELCT 862</item>
+        <item>ELCT 891</item>
+        <item>ELCT 897</item>
+        <item>ELCT 899</item>
+
+
+
     </string-array>
 </resources>
