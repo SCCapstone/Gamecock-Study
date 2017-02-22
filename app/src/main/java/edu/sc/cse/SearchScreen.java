@@ -24,7 +24,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
     Button aButton2;
     private EditText searchField;
     public int memberCount;
-    public List<String> members = new ArrayList<String>();
+    public List<String> members = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -110,24 +110,28 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
         searchField = (EditText) findViewById(R.id.subject);
         String searchedGroup = searchField.getText().toString();
 
-        DatabaseReference myRef = database.getReference("StudyGroup/" + searchedGroup);
+        DatabaseReference myRef = database.getReference("StudyGroup/CSCE 211");
 
 
         String temp = myRef.child("members").toString();
 
         myRef.child("members").addListenerForSingleValueEvent(new ValueEventListener() {
+            String user = LoginScreen.email;
             @Override
-
             public void onDataChange(DataSnapshot snapshot) {
                 // data available in snapshot.value()
-
-                members = snapshot.getValue(List.class);
+                Iterable<DataSnapshot> children =  snapshot.getChildren();
+                for(DataSnapshot child: children){
+                    String member = snapshot.getValue(String.class);
+                    members.add(member);
+                }
+                members.add(user);
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-        members.add(LoginScreen.email);
+
         //memberCount = memberCount + 1;
 
 
@@ -135,6 +139,20 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
         myRef.child("User" + memberCount).setValue(LoginScreen.email);
         myRef.child("members").setValue(members); //known bug!! Single user can repeatedly join and increase group count!
         //myRef.child(LoginScreen.email).setValue(LoginScreen.email);
+        DatabaseReference ref = database.getReference("StudyGroup");
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                StudyGroup studyGroup = dataSnapshot.getValue(StudyGroup.class);
+                System.out.println(studyGroup);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("The read failed: " + databaseError.getCode());
+            }
+        });
+
     }
 
 }
