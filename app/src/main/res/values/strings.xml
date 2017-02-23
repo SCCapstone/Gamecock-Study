@@ -15,7 +15,41 @@
     <string name="classes_prompt">Choose a class</string>
     <string-array name="classes_list">
 
-        <item>CSCE 101</item>
+
+
+        <item>CHEM 102</item>
+        <item>CHEM 105</item>
+        <item>CHEM 102</item>
+        <item>CHEM 111</item>
+        <item>CHEM 111L</item>
+        <item>CHEM 112</item>
+        <item>CHEM 112L</item>
+        <item>CHEM 141</item>
+        <item>CHEM 321</item>
+        <item>CHEM 321L</item>
+        <item>CHEM 322</item>
+        <item>CHEM 322L</item>
+        <item>CHEM 333</item>
+        <item>CHEM 333L</item>
+        <item>CHEM 334</item>
+        <item>CHEM 334L</item>
+        <item>CHEM 360</item>
+        <item>CHEM 339</item>
+        <item>CHEM 496</item>
+        <item>CHEM 497</item>
+        <item>CHEM 498</item>
+        <item>CHEM 499</item>
+        <item>CHEM 511</item>
+        <item>CHEM 533</item>
+        <item>CHEM 541</item>
+        <item>CHEM 541L</item>
+        <item>CHEM 542</item>
+        <item>CHEM 542L</item>
+        <item>CHEM 545</item>
+        <item>CHEM 550</item>
+        <item>CHEM 550L</item>
+        <item>CHEM 555</item>
+        <item>CHEM 556</item>
         <item>CSCE 102</item>
         <item>CSCE 145</item>
         <item>CSCE 146</item>
@@ -85,6 +119,46 @@
         <item>ELCT 891</item>
         <item>ELCT 897</item>
         <item>ELCT 899</item>
+        <item>MATH 111</item>
+        <item>MATH 111I</item>
+        <item>MATH 115</item>
+        <item>MATH 116</item>
+        <item>MATH 122</item>
+        <item>MATH 141</item>
+        <item>MATH 142</item>
+        <item>MATH 170</item>
+        <item>MATH 172</item>
+        <item>MATH 174</item>
+        <item>MATH 221</item>
+        <item>MATH 222</item>
+        <item>MATH 241</item>
+        <item>MATH 242</item>
+        <item>MATH 300</item>
+        <item>MATH 344</item>
+        <item>MATH 344L</item>
+        <item>MATH 374</item>
+        <item>MATH 511</item>
+        <item>MATH 514</item>
+        <item>MATH 520</item>
+        <item>MATH 524</item>
+        <item>MATH 531</item>
+        <item>MATH 534</item>
+        <item>MATH 544</item>
+        <item>MATH 544L</item>
+        <item>MATH 546</item>
+        <item>MATH 550</item>
+        <item>MATH 551</item>
+        <item>MATH 554</item>
+        <item>MATH 574</item>
+        <item>MATH 580</item>
+
+
+
+
+
+
+
+
 
 
 
