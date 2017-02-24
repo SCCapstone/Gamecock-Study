@@ -181,7 +181,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 
         descriptionField = (EditText) findViewById(R.id.Description);
         String groupDescription = descriptionField.getText().toString();
-        List<String> members = new ArrayList<String>();
+        List<String> members = new ArrayList<>();
 
         DatabaseReference myRef = database.getReference("StudyGroup");
         members.add(LoginScreen.email);

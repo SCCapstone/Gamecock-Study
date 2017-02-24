@@ -14,7 +14,7 @@ public class StudyGroup {
     public String date;
     public String description;
     public String location;
-    List<String> members = new ArrayList<String>();
+    List<String> members = new ArrayList<>();
     public String time;
     public String course;
     public String host;
@@ -59,5 +59,33 @@ public class StudyGroup {
 
     public String getHost() {
         return host;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setMembers(List<String> members) {
+        this.members = members;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
     }
 }

@@ -3,6 +3,7 @@ package edu.sc.cse;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,10 +12,12 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class SearchScreen extends AppCompatActivity implements View.OnClickListener
 {
@@ -24,7 +27,10 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
     Button aButton2;
     private EditText searchField;
     public int memberCount;
-    public List<String> members = new ArrayList<>();
+    public ArrayList<String> test = new ArrayList<>();
+    final List<String> members = new ArrayList<>();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -110,48 +116,31 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
         searchField = (EditText) findViewById(R.id.subject);
         String searchedGroup = searchField.getText().toString();
 
-        DatabaseReference myRef = database.getReference("StudyGroup/CSCE 211");
+        final DatabaseReference myRef = database.getReference("StudyGroup");
 
 
-        String temp = myRef.child("members").toString();
+         ArrayList<String> test2 = new ArrayList<>();
 
-        myRef.child("members").addListenerForSingleValueEvent(new ValueEventListener() {
-            String user = LoginScreen.email;
+
+        myRef.child("CSCE 101/members").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 // data available in snapshot.value()
-                Iterable<DataSnapshot> children =  snapshot.getChildren();
-                for(DataSnapshot child: children){
-                    String member = snapshot.getValue(String.class);
-                    members.add(member);
-                }
-                members.add(user);
+                //Iterable<DataSnapshot> children =  snapshot.getChildren()
+                // ;
+                GenericTypeIndicator<ArrayList<String>> t = new GenericTypeIndicator<ArrayList<String>>() {};
+                final ArrayList<String> temp  = snapshot.getValue(t);
+                temp.add(LoginScreen.email);
+                final ArrayList<String> m = temp;
+                myRef.child("CSCE 101/members").setValue(temp);
+
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
             }
+
         });
 
-        //memberCount = memberCount + 1;
-
-
-
-        myRef.child("User" + memberCount).setValue(LoginScreen.email);
-        myRef.child("members").setValue(members); //known bug!! Single user can repeatedly join and increase group count!
-        //myRef.child(LoginScreen.email).setValue(LoginScreen.email);
-        DatabaseReference ref = database.getReference("StudyGroup");
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                StudyGroup studyGroup = dataSnapshot.getValue(StudyGroup.class);
-                System.out.println(studyGroup);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                System.out.println("The read failed: " + databaseError.getCode());
-            }
-        });
 
     }
 
