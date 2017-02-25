@@ -167,6 +167,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                     studygroups.add(temp);
                 }
                 System.out.println(studygroups.toString());
+                System.out.println(studygroups.get(0).getCourse());
 
 
             }
