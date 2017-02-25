@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,7 +30,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
     public int memberCount;
     public ArrayList<String> test = new ArrayList<>();
     final List<String> members = new ArrayList<>();
-
+    List<StudyGroup> studygroups = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -130,9 +131,43 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                 // ;
                 GenericTypeIndicator<ArrayList<String>> t = new GenericTypeIndicator<ArrayList<String>>() {};
                 final ArrayList<String> temp  = snapshot.getValue(t);
-                temp.add(LoginScreen.email);
-                final ArrayList<String> m = temp;
-                myRef.child("CSCE 101/members").setValue(temp);
+                if(temp.contains(LoginScreen.email))
+                    {
+                        Toast.makeText(SearchScreen.this,
+                                "You are already a Memeber.", Toast.LENGTH_SHORT).show();
+                    }
+                else {
+                    temp.add(LoginScreen.email);
+                    final ArrayList<String> m = temp;
+                    myRef.child("CSCE 101/members").setValue(temp);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+
+        });
+
+
+        final DatabaseReference myRef2 = database.getReference();
+
+
+        //ArrayList<String> test2 = new ArrayList<>();
+
+
+        myRef2.child("StudyGroup").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                // data available in snapshot.value()
+                //Iterable<DataSnapshot> children =  snapshot.getChildren()
+                // ;
+               // StudyGroup temp = new StudyGroup();
+                for (DataSnapshot areaSnapshot: snapshot.getChildren()) {
+                   final StudyGroup temp = areaSnapshot.getValue(StudyGroup.class);
+                    studygroups.add(temp);
+                }
+                System.out.println(studygroups.toString());
+
 
             }
             @Override
