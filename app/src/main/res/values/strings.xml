@@ -16,7 +16,6 @@
     <string-array name="classes_list">
 
 
-
         <item>Chemistry</item>
         <item>CHEM 102</item>
         <item>CHEM 105</item>
@@ -312,16 +311,6 @@
         <item>PHYS 899</item>
 
 
-
-
-
-
-
-
-
-
-
-
-
     </string-array>
+    <string name="title_activity_button_listener">Button_listener</string>
 </resources>
