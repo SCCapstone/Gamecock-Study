@@ -1,7 +1,9 @@
 package edu.sc.cse;
 
+import android.content.DialogInterface;
 import android.database.DataSetObserver;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -83,6 +85,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     public void onItemClick(AdapterView<?> myAdapter, View myView, int pos, long mylng) {
                         String selectedFromList =(list.getItemAtPosition(pos).toString());
+
                         joinGroup(selectedFromList,LoginScreen.email);
                         System.out.println(selectedFromList);
                         // this is your selected item
@@ -169,7 +172,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
 
     public void joinGroup(String groupD, String user )
     {
-        String[] group = groupD.split("\\s+");
+        final String[] group = groupD.split("\\s+");
         final String course = group[0] + " " + group[1];
         System.out.println(course);
 
@@ -196,9 +199,23 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                                 "You are already a Memeber.", Toast.LENGTH_SHORT).show();
                     }
                 else {
-                    temp.add(LoginScreen.email);
-                    final ArrayList<String> m = temp;
-                    myRef.child(course +"/members").setValue(temp);
+                    new AlertDialog.Builder(SearchScreen.this)
+                            .setTitle("Confirmation")
+                            .setMessage("Are you sure you want to join " +course +"?")
+                            .setIcon(R.mipmap.ic_launcher)
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+
+                                public void onClick(DialogInterface dialog, int whichButton) {
+                                    temp.add(LoginScreen.email);
+                                    final ArrayList<String> m = temp;
+                                    myRef.child(course +"/members").setValue(temp);
+                                    Toast.makeText(SearchScreen.this,
+                                            "You have joined StudyGroup:" + course + "\n" + "Hosted by:"+group[3], Toast.LENGTH_SHORT).show();
+                                }})
+                            .setNegativeButton(android.R.string.no, null).show();
+//                    temp.add(LoginScreen.email);
+//                    final ArrayList<String> m = temp;
+//                    myRef.child(course +"/members").setValue(temp);
                 }
             }
             @Override
