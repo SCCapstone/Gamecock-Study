@@ -2,6 +2,17 @@ package edu.sc.cse;
 import edu.sc.cse.R;
 import com.google.firebase.iid.FirebaseInstanceId;
 
+
+
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
+import android.widget.RemoteViews;
+import android.support.v4.app.NotificationCompat;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -41,6 +52,15 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
     private Spinner nameField;
     Button aButton;
 
+    private NotificationCompat.Builder builder;
+    private NotificationManager notificationManager;
+    private int notification_id;
+    private RemoteViews remoteViews;
+    private Context context;
+
+    //Notifications
+
+
     //TimePicker
     Calendar c = Calendar.getInstance();
     TextView display;
@@ -56,6 +76,18 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         setContentView(R.layout.activity_create_group);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        context =this;
+        notificationManager=(NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+        remoteViews=new RemoteViews(getPackageName(),R.layout.custom_notification);
+        remoteViews.setImageViewResource(R.id.notif_icon,R.mipmap.ic_launcher);
+        remoteViews.setTextViewText(R.id.notif_title,"You created an event!");
+        //remoteViews.setProgressBar(R.id.progressBar,100,50,true);
+        notification_id=(int) System.currentTimeMillis();
+        Intent button_intent=new Intent("button_clicked");
+        button_intent.putExtra("id",notification_id);
+        PendingIntent p_button_intent=PendingIntent.getBroadcast(context,123,button_intent,0);
+        //remoteViews.setOnClickPendingIntent(R.id.button,p_button_intent);
 
         //TimePicker
         Button changeTimeBtn = (Button) findViewById(R.id.chooseTimeButton);
@@ -73,6 +105,8 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
                 android.R.layout.simple_spinner_item, states);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(dataAdapter);
+
+
 
 
 
@@ -134,6 +168,16 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
                 }
 
                 Intent intent = new Intent(CreateGroup.this, Main2Activity.class);
+                PendingIntent pendingIntent=PendingIntent.getActivity(context,0,intent,0);
+
+                //notifications
+                builder=new NotificationCompat.Builder(context);
+                builder.setSmallIcon(R.mipmap.ic_launcher)
+                        .setAutoCancel(true)
+                        .setCustomContentView(remoteViews)
+                        .setContentIntent(pendingIntent);
+                notificationManager.notify(notification_id,builder.build());
+
                 startActivity(intent);
                 break;
 
