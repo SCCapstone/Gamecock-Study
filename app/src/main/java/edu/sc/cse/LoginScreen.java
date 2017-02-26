@@ -37,6 +37,8 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -70,6 +72,27 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                 }
             }
         };
+
+
+        //This is for initializing the a variable for the number of users, stored in the database
+        DatabaseReference myRef = database.getReference();
+        myRef.child("Number of users").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                // data available in snapshot.value()
+                userCount = snapshot.getValue(int.class);
+//                Toast.makeText(LoginScreen.this, Integer.toString(userCount),
+//                        Toast.LENGTH_SHORT).show();
+
+
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+
+        });
     }
 
     @Override
@@ -89,28 +112,22 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    private void createAccount(String email, String password)
-    {
+    private void createAccount(String email, String password) {
         Log.d(TAG, "createAccount:" + email);
-        if (check() == false)
-        {
+        if (check() == false) {
             return;
         }
 
         auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task)
-                    {
+                    public void onComplete(@NonNull Task<AuthResult> task) {
                         Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
 
-                        if (task.isSuccessful() == false)
-                        {
+                        if (task.isSuccessful() == false) {
                             Toast.makeText(LoginScreen.this, "Unable to Create Account",
                                     Toast.LENGTH_SHORT).show();
-                        }
-                        else
-                        {
+                        } else {
                             Toast.makeText(LoginScreen.this, "Account Creation Successful!",
                                     Toast.LENGTH_SHORT).show();
 
@@ -118,62 +135,32 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                         }
                     }
 
-                } );
+                });
 
 
+        addUserToDatabase(email);
+    }
+
+    //This adds the user to the database and increments the count of users
+    //Known to be buggy if creating multiple users in a single instance of the running app
+    public void addUserToDatabase(String email) {
 
 
-        //Still trying to fix the user count. Does not fully work, but has no negative effect on app.
-        DatabaseReference myRef = database.getReference();
-        myRef.child("Number of users").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                // data available in snapshot.value()
-                userCount = snapshot.getValue(int.class);
-                Toast.makeText(LoginScreen.this, Integer.toString(userCount),
-                        Toast.LENGTH_SHORT).show();
+        DatabaseReference myRef = database.getReference("Users");
 
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
+        int newCount = userCount + 1;
 
-        });
-
+        myRef.child("User " + Integer.toString(newCount)).setValue(email);
+        myRef = database.getReference();
+        myRef.child("Number of users").setValue(newCount);
 
         createUsername(email);
-
-
-
-
-
-
-        myRef = database.getReference("Users");
-        myRef.child("User " + Integer.toString(userCount+1)).setValue(email);
-        //myRef.setValue(userCount);
-
-        updateUsercount(userCount);
-
-
-
-
     }
 
     public static String createUsername(String anEmail) {
 
         return anEmail.split("@")[0];
     }
-
-    ///////////////////////////////////////////////////////////////////
-    private void updateUsercount(int count)
-    {
-        DatabaseReference myRef = database.getReference();
-        count = count+1;
-        myRef = database.getReference();
-        myRef.child("Number of users").setValue(userCount+1);
-
-    }
-
 
     private boolean check()
     {

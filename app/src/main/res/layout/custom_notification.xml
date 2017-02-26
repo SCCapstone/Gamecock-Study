@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="85dp"
+    android:background="#959595"
+    >
+    <ImageView
+        android:id="@+id/notif_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:src="@android:drawable/ic_dialog_info"
+        android:layout_marginLeft="10dp" />
+
+
+    <TextView
+        android:id="@+id/notif_title"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:maxLines="1"
+        android:paddingTop="8dp"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        android:textColor="#791B1B"
+        android:text="You've created a group!"
+        android:layout_alignTop="@+id/notif_icon"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
