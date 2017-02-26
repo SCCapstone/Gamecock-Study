@@ -1,12 +1,17 @@
 package edu.sc.cse;
 
+import android.database.DataSetObserver;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -42,6 +47,47 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_search_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        final DatabaseReference myRef2 = database.getReference();
+
+
+        //ArrayList<String> test2 = new ArrayList<>();
+
+
+        myRef2.child("StudyGroup").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                // data available in snapshot.value()
+                //Iterable<DataSnapshot> children =  snapshot.getChildren()
+                // ;
+                // StudyGroup temp = new StudyGroup();
+
+                final ListView list = (ListView) findViewById(edu.sc.cse.R.id.listView);
+                String[] lv_arr = {};
+
+                ArrayList<String> grooupD = new ArrayList<>();
+                for (DataSnapshot areaSnapshot: snapshot.getChildren()) {
+                    final StudyGroup temp = areaSnapshot.getValue(StudyGroup.class);
+                    studygroups.add(temp);
+                    grooupD.add(temp.getCourse() + "  " + temp.getDate()+ "   " +temp.getHost());
+                }
+
+                // Puts items from database into a list
+                lv_arr = new String[grooupD.size()];
+                lv_arr = grooupD.toArray(lv_arr);
+                list.setAdapter(new ArrayAdapter<String>(SearchScreen.this,
+                        android.R.layout.simple_list_item_1, lv_arr));
+
+
+
+
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+
+        });
 
 
         aButton2 = (Button)findViewById(edu.sc.cse.R.id.joinButton);
@@ -114,7 +160,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
     public void joinGroup()
     {
 
-        searchField = (EditText) findViewById(R.id.subject);
+        //searchField = (EditText) findViewById(R.id.subject);
         String searchedGroup = searchField.getText().toString();
 
         final DatabaseReference myRef = database.getReference("StudyGroup");
@@ -149,33 +195,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
         });
 
 
-        final DatabaseReference myRef2 = database.getReference();
 
-
-        //ArrayList<String> test2 = new ArrayList<>();
-
-
-        myRef2.child("StudyGroup").addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                // data available in snapshot.value()
-                //Iterable<DataSnapshot> children =  snapshot.getChildren()
-                // ;
-               // StudyGroup temp = new StudyGroup();
-                for (DataSnapshot areaSnapshot: snapshot.getChildren()) {
-                   final StudyGroup temp = areaSnapshot.getValue(StudyGroup.class);
-                    studygroups.add(temp);
-                }
-                System.out.println(studygroups.toString());
-                System.out.println(studygroups.get(0).getCourse());
-
-
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-
-        });
 
 
     }
