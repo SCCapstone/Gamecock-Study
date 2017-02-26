@@ -78,15 +78,15 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         remoteViews=new RemoteViews(getPackageName(),R.layout.custom_notification);
 
         remoteViews.setImageViewResource(R.id.notif_icon,R.mipmap.ic_launcher);
-        remoteViews.setTextViewText(R.id.notif_title,"TEXT");
-        remoteViews.setProgressBar(R.id.progressBar,100,50,true);
+        remoteViews.setTextViewText(R.id.notif_title,"You created a group!");
+        // progress barremoteViews.setProgressBar(R.id.progressBar,100,50,true);
 
         notification_id=(int) System.currentTimeMillis();
         Intent button_intent=new Intent("button_clicked");
-        button_intent.putExtra("id",notification_id);
+        //button_intent.putExtra("id",notification_id);
 
         PendingIntent p_button_intent=PendingIntent.getBroadcast(context,123,button_intent,0);
-        remoteViews.setOnClickPendingIntent(R.id.button,p_button_intent);
+        //remoteViews.setOnClickPendingIntent(R.id.button,p_button_intent);
 
 
 
@@ -169,8 +169,8 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
                 String tkn = FirebaseInstanceId.getInstance().getToken();
 
                 //what is this for?
-                //Toast.makeText(CreateGroup.this, "Current token ["+tkn+"]",
-                //Toast.LENGTH_LONG).show();
+//                Toast.makeText(CreateGroup.this, "Current token ["+tkn+"]",
+//                Toast.LENGTH_LONG).show();
 
                 //Let usuer know they created a group!d
                 Toast.makeText(CreateGroup.this,
