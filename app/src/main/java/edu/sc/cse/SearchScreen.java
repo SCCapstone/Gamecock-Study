@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -79,6 +80,15 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                         android.R.layout.simple_list_item_1, lv_arr));
 
 
+                list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    public void onItemClick(AdapterView<?> myAdapter, View myView, int pos, long mylng) {
+                        String selectedFromList =(list.getItemAtPosition(pos).toString());
+                        joinGroup(selectedFromList,LoginScreen.email);
+                        System.out.println(selectedFromList);
+                        // this is your selected item
+                    }
+                });
+
 
 
 
@@ -115,7 +125,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
         //if clicked button2, we go to addData(), where data is written to the DB
         if(v.getId() == edu.sc.cse.R.id.joinButton)
         {
-            joinGroup();
+            //joinGroup();
         }
 
 
@@ -157,11 +167,14 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
 
 
 
-    public void joinGroup()
+    public void joinGroup(String groupD, String user )
     {
+        String[] group = groupD.split("\\s+");
+        final String course = group[0] + " " + group[1];
+        System.out.println(course);
 
         //searchField = (EditText) findViewById(R.id.subject);
-        String searchedGroup = searchField.getText().toString();
+        //String searchedGroup = searchField.getText().toString();
 
         final DatabaseReference myRef = database.getReference("StudyGroup");
 
@@ -169,7 +182,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
          ArrayList<String> test2 = new ArrayList<>();
 
 
-        myRef.child("CSCE 101/members").addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.child( course +"/members").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 // data available in snapshot.value()
@@ -185,7 +198,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                 else {
                     temp.add(LoginScreen.email);
                     final ArrayList<String> m = temp;
-                    myRef.child("CSCE 101/members").setValue(temp);
+                    myRef.child(course +"/members").setValue(temp);
                 }
             }
             @Override
