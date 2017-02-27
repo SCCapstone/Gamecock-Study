@@ -52,7 +52,8 @@
         android:layout_marginBottom="69dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="createButtonClicked"/>
+        android:onClick="createButtonClicked"
+        style="@style/Widget.AppCompat.Button.Colored" />
 
     <Button
         android:text="Sign In"
@@ -62,7 +63,8 @@
         android:id="@+id/sign_in_button"
         android:layout_alignBottom="@+id/create_account_button"
         android:layout_centerHorizontal="true"
-        android:onClick="signInClicked" />
+        android:onClick="signInClicked"
+        style="@style/Widget.AppCompat.Button.Colored" />
 
     <!--shivangi's coment-->
 </RelativeLayout>

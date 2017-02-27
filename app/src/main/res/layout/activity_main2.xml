@@ -30,7 +30,9 @@
             android:layout_height="160dp"
             android:id="@+id/StudyEventButton"
             android:textStyle="normal|bold"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:textSize="20sp" />
 
         <Button
             android:text="@string/create_study_event"
@@ -40,7 +42,9 @@
             android:layout_height="160dp"
             android:id="@+id/button3"
             android:textStyle="normal|bold"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:textSize="20sp" />
 
         <Button
             android:text="@string/my_study_events"
@@ -50,7 +54,9 @@
             android:onClick="myEvents"
             android:paddingTop="20dp"
             android:textStyle="normal|bold"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:textSize="20sp" />
 
 
     </LinearLayout>
