@@ -16,7 +16,6 @@
     <string-array name="classes_list">
 
 
-        <item>*Chemistry*</item>
         <item>CHEM 102</item>
         <item>CHEM 105</item>
         <item>CHEM 102</item>
@@ -70,7 +69,6 @@
         <item>CHEM 791</item>
         <item>CHEM 898</item>
         <item>CHEM 899</item>
-        <item>*Criminal Justice*</item>
         <item>CRJU 101</item>
         <item>CRJU 202</item>
         <item>CRJU 203</item>
@@ -104,7 +102,6 @@
         <item>CRJU 816</item>
         <item>CRJU 821</item>
         <item>CRJU 899</item>
-        <item>*Computer Science*</item>
         <item>CSCE 102</item>
         <item>CSCE 145</item>
         <item>CSCE 146</item>
@@ -154,7 +151,6 @@
         <item>CSCE 799</item>
         <item>CSCE 813</item>
         <item>CSCE 899</item>
-        <item>*ECONOMICS*</item>
         <item>ECON 221</item>
         <item>ECON 222</item>
         <item>ECON 321</item>
@@ -175,7 +171,6 @@
         <item>ECON 840</item>
         <item>ECON 880</item>
         <item>ECON 899</item>
-        <item>*Mechanical Engineering*</item>
         <item>EMCH 101</item>
         <item>EMCH 111</item>
         <item>EMCH 200</item>
@@ -217,7 +212,6 @@
         <item>EMCH 797</item>
         <item>EMCH 799</item>
         <item>EMCH 899</item>
-        <item>Electrical Engineering</item>
         <item>ELCT 102</item>
         <item>ELCT 201</item>
         <item>ELCT 220</item>
@@ -249,7 +243,6 @@
         <item>ELCT 891</item>
         <item>ELCT 897</item>
         <item>ELCT 899</item>
-        <item>Mathematics</item>
         <item>MATH 111</item>
         <item>MATH 111I</item>
         <item>MATH 115</item>
@@ -298,7 +291,6 @@
         <item>MATH 785</item>
         <item>MATH 792</item>
         <item>MATH 899</item>
-        <item>Physics</item>
         <item>PHYS 101</item>
         <item>PHYS 101L</item>
         <item>PHYS 155</item>

@@ -72,7 +72,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                 for (DataSnapshot areaSnapshot: snapshot.getChildren()) {
                     final StudyGroup temp = areaSnapshot.getValue(StudyGroup.class);
                     studygroups.add(temp);
-                    grooupD.add(temp.getCourse() + "  " + temp.getDate()+ "   " +temp.getHost());
+                    grooupD.add("Course: " +" "+temp.getCourse() + "  " +"\nDate: " +temp.getDate()+ "   " +"\nHost: "+temp.getHost());
                 }
 
                 // Puts items from database into a list
@@ -103,8 +103,8 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
         });
 
 
-        aButton2 = (Button)findViewById(edu.sc.cse.R.id.joinButton);
-        aButton2.setOnClickListener(this);
+        //aButton2 = (Button)findViewById(edu.sc.cse.R.id.joinButton);
+        //aButton2.setOnClickListener(this);
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -126,10 +126,10 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
     {
 
         //if clicked button2, we go to addData(), where data is written to the DB
-        if(v.getId() == edu.sc.cse.R.id.joinButton)
-        {
-            //joinGroup();
-        }
+//        if(v.getId() == edu.sc.cse.R.id.joinButton)
+//        {
+//            //joinGroup();
+//        }
 
 
         //if button3 then we go ahead and read from the DB
@@ -173,8 +173,8 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
     public void joinGroup(String groupD, String user )
     {
         final String[] group = groupD.split("\\s+");
-        final String course = group[0] + " " + group[1];
-        System.out.println(course);
+        final String course = group[1] + " " + group[2];
+        System.out.println("test"+course);
 
         //searchField = (EditText) findViewById(R.id.subject);
         //String searchedGroup = searchField.getText().toString();
@@ -210,7 +210,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                                     final ArrayList<String> m = temp;
                                     myRef.child(course +"/members").setValue(temp);
                                     Toast.makeText(SearchScreen.this,
-                                            "You have joined StudyGroup:" + course + "\n" + "Hosted by:"+group[3], Toast.LENGTH_SHORT).show();
+                                            "You have joined StudyGroup: " + course + "\n" + "Hosted by: "+group[6], Toast.LENGTH_LONG).show();
                                 }})
                             .setNegativeButton(android.R.string.no, null).show();
 //                    temp.add(LoginScreen.email);

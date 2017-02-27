@@ -48,7 +48,7 @@ public class MyEvents extends AppCompatActivity {
                     final StudyGroup temp = areaSnapshot.getValue(StudyGroup.class);
                     //studygroups.add(temp);
                     if(temp.getMembers().contains(LoginScreen.email)) {
-                        grooupD.add(temp.getCourse() + "  " + temp.getDate() + "   " + temp.getHost());
+                        grooupD.add("Course: " + temp.getCourse() + "\nDate: " + temp.getDate() + "\nHost: " + temp.getHost());
                     }
                     }
 

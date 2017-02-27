@@ -27,26 +27,30 @@
             android:text="@string/find_study_event"
             android:onClick="StudyEventButton"
             android:layout_width="match_parent"
-            android:layout_height="132dp"
+            android:layout_height="160dp"
             android:id="@+id/StudyEventButton"
-            android:layout_weight="0.22" />
+            android:textStyle="normal|bold"
+            android:textAlignment="center" />
 
         <Button
             android:text="@string/create_study_event"
             android:onClick="createEvent"
+            android:paddingTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="132dp"
+            android:layout_height="160dp"
             android:id="@+id/button3"
-
-            android:layout_weight="0.20" />
+            android:textStyle="normal|bold"
+            android:textAlignment="center" />
 
         <Button
             android:text="@string/my_study_events"
             android:layout_width="match_parent"
-            android:layout_height="132dp"
+            android:layout_height="160dp"
             android:id="@+id/button4"
             android:onClick="myEvents"
-            android:layout_weight="0.24" />
+            android:paddingTop="20dp"
+            android:textStyle="normal|bold"
+            android:textAlignment="center" />
 
 
     </LinearLayout>
