@@ -35,24 +35,16 @@
         android:id="@+id/password_field"
         android:hint="Password"/>
 
-    <TextView
-        android:text="Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView"
-        android:layout_marginTop="20dp"
-        android:textSize="36sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 
     <ImageView
-        android:layout_height="75dp"
+        android:layout_height="100dp"
         app:srcCompat="@mipmap/login_logo"
         android:id="@+id/imageView"
         android:layout_width="100dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="200dp"
-        android:layout_marginTop="70dp" />
+        android:layout_above="@id/email_field"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="20dp" />
 
     <Button
         android:text="Create Account"
