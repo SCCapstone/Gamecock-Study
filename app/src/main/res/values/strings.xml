@@ -267,6 +267,51 @@
         <item>ELCT 891</item>
         <item>ELCT 897</item>
         <item>ELCT 899</item>
+        <item>HIST 101</item>
+        <item>HIST 102</item>
+        <item>HIST 103</item>
+        <item>HIST 104</item>
+        <item>HIST 105</item>
+        <item>HIST 108</item>
+        <item>HIST 109</item>
+        <item>HIST 111</item>
+        <item>HIST 112</item>
+        <item>HIST 212</item>
+        <item>HIST 214</item>
+        <item>HIST 300</item>
+        <item>HIST 305</item>
+        <item>HIST 309</item>
+        <item>HIST 317</item>
+        <item>HIST 320</item>
+        <item>HIST 325</item>
+        <item>HIST 334</item>
+        <item>HIST 338</item>
+        <item>HIST 355</item>
+        <item>HIST 367</item>
+        <item>HIST 383</item>
+        <item>HIST 384</item>
+        <item>HIST 393</item>
+        <item>HIST 396</item>
+        <item>HIST 399</item>
+        <item>HIST 401</item>
+        <item>HIST 404</item>
+        <item>HIST 405</item>
+        <item>HIST 407</item>
+        <item>HIST 409</item>
+        <item>HIST 421</item>
+        <item>HIST 423</item>
+        <item>HIST 443</item>
+        <item>HIST 449</item>
+        <item>HIST 468</item>
+        <item>HIST 492</item>
+        <item>HIST 497</item>
+        <item>HIST 499</item>
+        <item>HIST 700</item>
+        <item>HIST 701</item>
+        <item>HIST 720</item>
+        <item>HIST 799</item>
+        <item>HIST 800</item>
+        <item>HIST 899</item>
         <item>MATH 111</item>
         <item>MATH 111I</item>
         <item>MATH 115</item>
@@ -346,6 +391,33 @@
         <item>PHYS 761</item>
         <item>PHYS 799</item>
         <item>PHYS 899</item>
+        <item>SPAN 109</item>
+        <item>SPAN 110</item>
+        <item>SPAN 111</item>
+        <item>SPAN 121</item>
+        <item>SPAN 122</item>
+        <item>SPAN 209</item>
+        <item>SPAN 210</item>
+        <item>SPAN 302</item>
+        <item>SPAN 303</item>
+        <item>SPAN 304</item>
+        <item>SPAN 305</item>
+        <item>SPAN 312</item>
+        <item>SPAN 316</item>
+        <item>SPAN 317</item>
+        <item>SPAN 360</item>
+        <item>SPAN 399</item>
+        <item>SPAN 401</item>
+        <item>SPAN 405</item>
+        <item>SPAN 417</item>
+        <item>SPAN 515</item>
+        <item>SPAN 722</item>
+        <item>SPAN 726</item>
+        <item>SPAN 777</item>
+        <item>SPAN 796</item>
+        <item>SPAN 799</item>
+        <item>SPAN 881</item>
+        <item>SPAN 899</item>
 
 
     </string-array>
