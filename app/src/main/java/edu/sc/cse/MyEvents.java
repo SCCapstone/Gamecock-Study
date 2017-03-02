@@ -28,17 +28,9 @@ public class MyEvents extends AppCompatActivity {
 
         final DatabaseReference myRef2 = database.getReference();
 
-
-        //ArrayList<String> test2 = new ArrayList<>();
-
-
         myRef2.child("StudyGroup").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                // data available in snapshot.value()
-                //Iterable<DataSnapshot> children =  snapshot.getChildren()
-                // ;
-                // StudyGroup temp = new StudyGroup();
 
                 final ListView list = (ListView) findViewById(edu.sc.cse.R.id.listView);
                 String[] lv_arr = {};
@@ -46,11 +38,11 @@ public class MyEvents extends AppCompatActivity {
                 ArrayList<String> grooupD = new ArrayList<>();
                 for (DataSnapshot areaSnapshot: snapshot.getChildren()) {
                     final StudyGroup temp = areaSnapshot.getValue(StudyGroup.class);
-                    //studygroups.add(temp);
-                    if(temp.getMembers().contains(LoginScreen.email)) {
+
+                    if (temp.getMembers().contains(LoginScreen.email)) {
                         grooupD.add("Course: " + temp.getCourse() + "\nDate: " + temp.getDate() + "\nHost: " + temp.getHost());
                     }
-                    }
+                }
 
                 // Puts items from database into a list
                 lv_arr = new String[grooupD.size()];
@@ -63,14 +55,11 @@ public class MyEvents extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> myAdapter, View myView, int pos, long mylng) {
                         String selectedFromList =(list.getItemAtPosition(pos).toString());
 
-           //             joinGroup(selectedFromList,LoginScreen.email);
+                        // This is your selected item
                         System.out.println(selectedFromList);
-                        // this is your selected item
+
                     }
                 });
-
-
-
 
             }
             @Override
