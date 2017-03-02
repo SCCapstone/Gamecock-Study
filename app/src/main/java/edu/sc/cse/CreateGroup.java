@@ -65,14 +65,11 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
     private RemoteViews remoteViews;
     private Context context;
 
-    //Notifications
-
-
-    //TimePicker
+    //  TimePicker
     Calendar c = Calendar.getInstance();
     TextView display;
 
-    // Spinner
+    //  Spinner
     private String[] states;
     private Spinner spinner;
 
@@ -89,14 +86,12 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         remoteViews=new RemoteViews(getPackageName(),R.layout.custom_notification);
         remoteViews.setImageViewResource(R.id.notif_icon,R.mipmap.ic_launcher);
         remoteViews.setTextViewText(R.id.notif_title,"You created an event!");
-        //remoteViews.setProgressBar(R.id.progressBar,100,50,true);
         notification_id=(int) System.currentTimeMillis();
         Intent button_intent=new Intent("button_clicked");
         button_intent.putExtra("id",notification_id);
         PendingIntent p_button_intent=PendingIntent.getBroadcast(context,123,button_intent,0);
-        //remoteViews.setOnClickPendingIntent(R.id.button,p_button_intent);
 
-        //TimePicker
+        //  TimePicker
         Button changeTimeBtn = (Button) findViewById(R.id.chooseTimeButton);
         display = (TextView) findViewById(R.id.displayTimeText);
         changeTimeBtn.setOnClickListener(this);
@@ -104,7 +99,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         aButton = (Button) findViewById(edu.sc.cse.R.id.create_room);
         aButton.setOnClickListener(this);
 
-        // Spinner
+        //  Spinner
         states = getResources().getStringArray(R.array.classes_list);
         spinner = (Spinner) findViewById(R.id.classes_spinner);
 
@@ -114,9 +109,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         spinner.setAdapter(dataAdapter);
 
 
-
-
-
+// Can't delete atm
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener()
 //        {
@@ -160,16 +153,12 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
             case R.id.create_room:
                 String tkn = FirebaseInstanceId.getInstance().getToken();
 
-                //what is this for?
-                //Toast.makeText(CreateGroup.this, "Current token ["+tkn+"]",
-                //Toast.LENGTH_LONG).show();
-
-                //Let usuer know they created a group!d
+                //  Let user know they created a group
                 Toast.makeText(CreateGroup.this,
                         "Group Created!", Toast.LENGTH_LONG).show();
                 Log.d("App", "Token [" + tkn + "]");
 
-                //if clicked button2, we go to addData(), where data is written to the DB
+                //  If clicked button2, we go to addData(), where data is written to the DB
                 if (v.getId() == edu.sc.cse.R.id.create_room) {
                     addGroup();
                 }
@@ -177,7 +166,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
                 Intent intent = new Intent(CreateGroup.this, Main2Activity.class);
                 PendingIntent pendingIntent=PendingIntent.getActivity(context,0,intent,0);
 
-                //notifications
+                //  Notifications
                 builder=new NotificationCompat.Builder(context);
                 builder.setSmallIcon(R.mipmap.ic_launcher)
                         .setAutoCancel(true)
@@ -185,18 +174,10 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
                         .setContentIntent(pendingIntent);
                 notificationManager.notify(notification_id,builder.build());
 
-                //sound to notification
+                //  Sound to notification
                 Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
                 Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
                 r.play();
-
-
-
-                //vibrate to notification
-                //Vibrator h = (Vibrator) this.context.getSystemService(Context.VIBRATOR_SERVICE);
-                // Vibrate for 500 milliseconds
-                //h.vibrate(500);
-
 
                 startActivity(intent);
                 break;
@@ -207,26 +188,17 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         }
     }
 
-    //vibrate on noification
+    //  vibrate on noification
     public void vibrate(long[] pattern, int repeat){
-
 
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
-        // Start without a delay
-        // Vibrate for 100 milliseconds
-    // Sleep for 1000 milliseconds
+        //  Start without a delay
+        //  Vibrate for 100 milliseconds
+        //  Sleep for 1000 milliseconds
         long[] pat = {0, 100, 1000};
-
         v.vibrate(pat, 0);
-
     }
-
-
-
-
-
-
 
     TimePickerDialog.OnTimeSetListener t = new TimePickerDialog.OnTimeSetListener() {
 
@@ -247,11 +219,11 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         String groupLocation = locationField.getText().toString();
 
 
-        //This is the new time picker (works)
+        //  This is the new time picker (works)
         timeField = (TextView) findViewById(R.id.displayTimeText);
         String groupTime = timeField.getText().toString();
 
-        //This is for the new Date Picker
+        //  This is for the new Date Picker
         dateField = (DatePicker)findViewById(R.id.datePicker);
         Integer dobYear = dateField.getYear();
         Integer dobMonth = dateField.getMonth() + 1;
@@ -260,9 +232,6 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         String.append(dobMonth.toString()).append("/").append(dobDate.toString()).append("/").append(dobYear.toString());
         String groupDate=String.toString();
 
-        //This is the older date picker (works)
-//        dateField = (EditText) findViewById(R.id.Date);
-//        String groupDate = dateField.getText().toString();
 
         descriptionField = (EditText) findViewById(R.id.Description);
         String groupDescription = descriptionField.getText().toString();
@@ -272,13 +241,6 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         members.add(LoginScreen.email);
         myRef.child(groupName).setValue(new StudyGroup(groupDate,groupDescription,groupLocation,members ,groupTime,groupName,LoginScreen.email));
 
-//        myRef.child("Host User").setValue(LoginScreen.email);
-//        //myRef.child("").setValue("");
-//        myRef.child("Location").setValue(groupLocation);
-//        myRef.child("Date").setValue(groupDate);
-//        myRef.child("Time").setValue(groupTime);
-//        myRef.child("Description").setValue(groupDescription);
-//        myRef.child("Members").setValue(1);
 
     }
 

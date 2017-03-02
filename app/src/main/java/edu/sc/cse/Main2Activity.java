@@ -6,11 +6,11 @@ import android.view.View;
 import android.content.Intent;
 
 
-//Susana Cuellar edited this on 11/16/17
-//this is the navigation screen that will take you to events, find events, etc.
-//almost positive it is right
-//waiting on james to check login screen
-//modified on 11/27/17
+//  Susana Cuellar edited this on 11/16/17
+//  this is the navigation screen that will take you to events, find events, etc.
+//  almost positive it is right
+//  waiting on james to check login screen
+//  modified on 11/27/17
 
 
 public class Main2Activity extends AppCompatActivity {
@@ -20,16 +20,9 @@ public class Main2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-
     }
 
-
-    //Find Study Event Button
-    //Create Study Event Button
-    //My Study Events button
-
-
-    //Connect button with search screen
+    //  Connect button with search screen
     public void StudyEventButton(View view) {
 
 
@@ -38,9 +31,7 @@ public class Main2Activity extends AppCompatActivity {
 
     }
 
-
-
-    //Switch Activity Method to create group/event page
+    //  Switch Activity Method to create group/event page
     public void createEvent(View view) {
 
         Intent intent = new Intent(Main2Activity.this, CreateGroup.class);
@@ -48,25 +39,11 @@ public class Main2Activity extends AppCompatActivity {
 
     }
 
-
-
-
-
     public void myEvents(View view) {
 
 
         Intent intent = new Intent(Main2Activity.this, MyEvents.class);
         startActivity(intent);
 
-
     }
-
-
-
-
-
-
-
-
-
 }

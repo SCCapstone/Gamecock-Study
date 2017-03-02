@@ -74,7 +74,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
         };
 
 
-        //This is for initializing the a variable for the number of users, stored in the database
+        //  This is for initializing the a variable for the number of users, stored in the database
         DatabaseReference myRef = database.getReference();
         myRef.child("Number of users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
