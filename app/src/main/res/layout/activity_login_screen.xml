@@ -47,25 +47,37 @@
 
     <Button
         android:text="Sign In"
+        android:onClick="signInClicked"
+        android:id="@+id/sign_in_button"
+        android:layout_alignBottom="@+id/create_account_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="66dp"
-        android:id="@+id/sign_in_button"
-        android:layout_alignBottom="@+id/create_account_button"
         android:layout_centerHorizontal="true"
-        android:onClick="signInClicked"
-        style="@style/Widget.AppCompat.Button.Colored" />
+        android:background="@drawable/button_shape"
+        android:textColor="#FFFFFFFF"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+        />
 
     <Button
         android:text="Create Account"
+        android:onClick="createButtonClicked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/create_account_button"
         android:layout_marginBottom="69dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:onClick="createButtonClicked"
-        style="@style/Widget.AppCompat.Button.Colored" />
+        android:background="@drawable/button_shape"
+        android:textColor="#FFFFFFFF"
+        android:shadowColor="#A8A8A8"
+        android:shadowDx="0"
+        android:shadowDy="0"
+        android:shadowRadius="5"
+         />
 
 
 </RelativeLayout>
