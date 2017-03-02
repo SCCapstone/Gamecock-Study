@@ -26,37 +26,48 @@
         <Button
             android:text="@string/find_study_event"
             android:onClick="StudyEventButton"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
             android:id="@+id/StudyEventButton"
-            android:textStyle="normal|bold"
-            android:textAlignment="center"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:textSize="20sp" />
+            android:textColor="#FFFFFFFF"
+            android:textSize="30sp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5" />
 
         <Button
             android:text="@string/create_study_event"
             android:onClick="createEvent"
-            android:paddingTop="20dp"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
             android:id="@+id/button3"
-            android:textStyle="normal|bold"
-            android:textAlignment="center"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:textSize="20sp" />
+            android:textColor="#FFFFFFFF"
+            android:textSize="30sp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5"/>
 
         <Button
             android:text="@string/my_study_events"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
             android:id="@+id/button4"
             android:onClick="myEvents"
-            android:paddingTop="20dp"
-            android:textStyle="normal|bold"
-            android:textAlignment="center"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:textSize="20sp" />
+            android:textColor="#FFFFFFFF"
+            android:textSize="30sp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="60dp"
+            android:background="@drawable/button_shape"
+            android:shadowColor="#A8A8A8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="5" />
 
 
     </LinearLayout>
