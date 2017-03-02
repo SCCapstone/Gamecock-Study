@@ -64,6 +64,12 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                 {
                     // User is signed in
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    //Toast.makeText(LoginScreen.this, user.getUid(),
+                    //    Toast.LENGTH_SHORT).show();
+
+                    // This line will keep the user from having to log in every time they run the app
+                    //results in a 'null' user error in creating groups
+                    //startActivity(new Intent(LoginScreen.this, Main2Activity.class));
                 }
                 else
                 {
@@ -132,6 +138,8 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                                     Toast.LENGTH_SHORT).show();
 
 
+
+
                         }
                     }
 
@@ -139,6 +147,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
 
 
         addUserToDatabase(email);
+        signIn(email, password);
     }
 
     //This adds the user to the database and increments the count of users
@@ -147,6 +156,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
 
 
         DatabaseReference myRef = database.getReference("Users");
+
 
         int newCount = userCount + 1;
 
