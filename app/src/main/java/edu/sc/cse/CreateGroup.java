@@ -10,14 +10,17 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Context;
 import android.widget.RemoteViews;
+import android.media.RingtoneManager;
+import android.media.Ringtone;
+import android.os.Vibrator;
 import android.support.v4.app.NotificationCompat;
+//import android.support.v4.app.NotificationCompat.Action.Builder;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -31,6 +34,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
+
+
+
+
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -178,6 +185,19 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
                         .setContentIntent(pendingIntent);
                 notificationManager.notify(notification_id,builder.build());
 
+                //sound to notification
+                Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+                r.play();
+
+
+
+                //vibrate to notification
+                //Vibrator h = (Vibrator) this.context.getSystemService(Context.VIBRATOR_SERVICE);
+                // Vibrate for 500 milliseconds
+                //h.vibrate(500);
+
+
                 startActivity(intent);
                 break;
 
@@ -186,6 +206,27 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 
         }
     }
+
+    //vibrate on noification
+    public void vibrate(long[] pattern, int repeat){
+
+
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+
+        // Start without a delay
+        // Vibrate for 100 milliseconds
+    // Sleep for 1000 milliseconds
+        long[] pat = {0, 100, 1000};
+
+        v.vibrate(pat, 0);
+
+    }
+
+
+
+
+
+
 
     TimePickerDialog.OnTimeSetListener t = new TimePickerDialog.OnTimeSetListener() {
 

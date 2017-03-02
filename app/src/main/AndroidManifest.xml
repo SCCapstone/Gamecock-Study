@@ -66,6 +66,8 @@
             android:name=".Button_listener"
             android:label="@string/title_activity_button_listener"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+
+        <uses-permission android:name="android.permission.VIBRATE" />
     </application>
 
 </manifest>
