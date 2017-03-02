@@ -15,7 +15,31 @@
     <string name="classes_prompt">Choose a class</string>
     <string-array name="classes_list">
 
-
+        <item>ACCT 222</item>
+        <item>ACCT 225</item>
+        <item>ACCT 226</item>
+        <item>ACCT 324</item>
+        <item>ACCT 401</item>
+        <item>ACCT 402</item>
+        <item>ACCT 403</item>
+        <item>ACCT 404</item>
+        <item>ACCT 405</item>
+        <item>ACCT 406</item>
+        <item>ACCT 501</item>
+        <item>ACCT 502</item>
+        <item>ACCT 505</item>
+        <item>ACCT 506</item>
+        <item>ACCT 728</item>
+        <item>ACCT 732</item>
+        <item>ACCT 734</item>
+        <item>ACCT 736</item>
+        <item>ACCT 737</item>
+        <item>ACCT 738</item>
+        <item>ACCT 741</item>
+        <item>ACCT 743</item>
+        <item>ACCT 750</item>
+        <item>ACCT 751</item>
+        <item>ACCT 832</item>
         <item>CHEM 102</item>
         <item>CHEM 105</item>
         <item>CHEM 102</item>
