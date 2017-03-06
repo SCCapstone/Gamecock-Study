@@ -120,7 +120,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                 if(temp.contains(LoginScreen.email))
                     {
                         Toast.makeText(SearchScreen.this,
-                                "You are already a Memeber.", Toast.LENGTH_SHORT).show();
+                                "You are already a member.", Toast.LENGTH_SHORT).show();
                     }
                 else {
                     new AlertDialog.Builder(SearchScreen.this)
