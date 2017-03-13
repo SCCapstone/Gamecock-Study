@@ -12,6 +12,14 @@
     <string name="title_activity_my_events">MyEvents</string>
 
 
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
     <string name="classes_prompt">Choose a class</string>
     <string-array name="classes_list">
 

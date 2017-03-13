@@ -5,79 +5,77 @@
     android:id="@+id/activity_login_screen"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?android:attr/quickContactBadgeOverlay"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/backgroundColor"
     tools:context="edu.sc.cse.LoginScreen">
 
     <ImageView
-        android:layout_height="100dp"
-        app:srcCompat="@mipmap/login_logo"
         android:id="@+id/login_logo"
         android:layout_width="100dp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="30dp"
-        />
+        android:layout_height="100dp"
+        android:layout_marginTop="31dp"
+        android:adjustViewBounds="false"
+        app:srcCompat="@mipmap/login_logo"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <EditText
+        android:id="@+id/email_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/email_field"
         android:layout_above="@+id/password_field"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="27dp"
-        android:hint="Email"/>
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
 
     <EditText
+        android:id="@+id/password_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
         android:layout_above="@+id/sign_in_button"
         android:layout_alignLeft="@+id/email_field"
         android:layout_alignStart="@+id/email_field"
         android:layout_marginBottom="33dp"
-        android:id="@+id/password_field"
-        android:hint="Password"/>
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword" />
 
     <Button
-        android:text="Sign In"
-        android:onClick="signInClicked"
         android:id="@+id/sign_in_button"
-        android:layout_alignBottom="@+id/create_account_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="66dp"
+        android:layout_alignBottom="@+id/create_account_button"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="66dp"
         android:background="@drawable/button_shape"
-        android:textColor="#FFFFFFFF"
+        android:onClick="signInClicked"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-        />
+        android:text="Sign In"
+        android:textColor="#FFFFFFFF" />
 
     <Button
-        android:text="Create Account"
-        android:onClick="createButtonClicked"
+        android:id="@+id/create_account_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/create_account_button"
-        android:layout_marginBottom="69dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="69dp"
         android:background="@drawable/button_shape"
-        android:textColor="#FFFFFFFF"
+        android:onClick="createButtonClicked"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
         android:shadowDy="0"
         android:shadowRadius="5"
-         />
+        android:text="Create Account"
+        android:textColor="#FFFFFFFF" />
 
 
 </RelativeLayout>
