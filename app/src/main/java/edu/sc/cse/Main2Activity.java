@@ -125,6 +125,7 @@ public class Main2Activity extends AppCompatActivity
 
         } else if (id == R.id.nav_logout) {
             FirebaseAuth.getInstance().signOut();
+            startActivity(new Intent(Main2Activity.this, LoginScreen.class));
 
         }
 
