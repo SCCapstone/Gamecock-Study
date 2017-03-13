@@ -14,6 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 
 //  Susana Cuellar edited this on 11/16/17
 //  this is the navigation screen that will take you to events, find events, etc.
@@ -122,6 +124,7 @@ public class Main2Activity extends AppCompatActivity
             startActivity(new Intent(Main2Activity.this, MyEvents.class));
 
         } else if (id == R.id.nav_logout) {
+            FirebaseAuth.getInstance().signOut();
 
         }
 
