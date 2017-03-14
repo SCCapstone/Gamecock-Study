@@ -6,10 +6,10 @@
             android:id="@+id/nav_findEvent"
             android:title="Find Study Event" />
         <item
-            android:id="@+id/nav_ceateEvent"
+            android:id="@+id/nav_createEvent"
             android:title="Create Study Event" />
         <item
-            android:id="@+id/nav_myEvent"
+            android:id="@+id/nav_myEvents"
             android:title="My Study Events" />
 
     </group>
