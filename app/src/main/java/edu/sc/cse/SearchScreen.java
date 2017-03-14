@@ -68,6 +68,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
             public void onDataChange(DataSnapshot snapshot) {
 
                 final ListView list = (ListView) findViewById(edu.sc.cse.R.id.listView);
+
                 String[] lv_arr = {};
 
                 ArrayList<String> grooupD = new ArrayList<>();
@@ -122,8 +123,11 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
     public void joinGroup(String groupD, String user )
     {
         final String[] group = groupD.split("\\s+");
-        final String course = group[1] + " " + group[2];
+
+        final String course = group[0] + " " + group[1];//change from group[1] and group[2] to group[0] and group[1]
         System.out.println("test"+course);
+//TODO
+        //Log.d(TAG, "ATTENTION!!!!!: "+ group[0] + " " + group[1] + " " + group[2] + " " + group[3] + " " + group[4]);
 
         final DatabaseReference myRef = database.getReference("StudyGroup");
 
@@ -132,9 +136,12 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
         myRef.child( course +"/members").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-
+//TODO error is with temp!!!!!
                 GenericTypeIndicator<ArrayList<String>> t = new GenericTypeIndicator<ArrayList<String>>() {};
                 final ArrayList<String> temp  = snapshot.getValue(t);
+
+
+
                 if(temp.contains(LoginScreen.email))
                     {
                         Toast.makeText(SearchScreen.this,
@@ -152,7 +159,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                                     final ArrayList<String> m = temp;
                                     myRef.child(course +"/members").setValue(temp);
                                     Toast.makeText(SearchScreen.this,
-                                            "You have joined StudyGroup: " + course + "\n" + "Hosted by: "+group[6], Toast.LENGTH_LONG).show();
+                                            "You have joined StudyGroup: " + course + "\n" + "Hosted by: "+group[4], Toast.LENGTH_LONG).show();//changed from group[6] to group[4]
                                 }})
                             .setNegativeButton(android.R.string.no, null).show();
                 }
