@@ -18,14 +18,34 @@
         android:layout_width="match_parent"
         android:layout_height="50dp">
     </LinearLayout>
+    <EditText
+
+        android:layout_width="match_parent"
+
+        android:layout_height="wrap_content"
+
+        android:id="@+id/editText"
+
+        android:layout_marginLeft="20dp"
+
+        android:layout_marginRight="20dp"
+
+        android:layout_alignParentTop="true"
+
+        android:layout_alignParentLeft="true"
+        android:hint="Search Study Event"
+        android:layout_alignParentStart="true" />
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/listView"
         android:dividerHeight="5dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/editText"
+        android:layout_alignLeft="@+id/editText"
+        android:layout_alignStart="@+id/editText" />
         android:layout_alignParentStart="true" />
 
 

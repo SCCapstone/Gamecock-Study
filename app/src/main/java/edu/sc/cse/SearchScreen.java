@@ -11,6 +11,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -41,6 +43,9 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     public ArrayList<String> test = new ArrayList<>();
     List<StudyGroup> studygroups = new ArrayList<>();
+    private EditText filterText;
+    private ArrayAdapter<String> listAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -50,8 +55,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_search_screen);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
+        filterText = (EditText)findViewById(R.id.editText);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -81,8 +85,10 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                 // Puts items from database into a list
                 lv_arr = new String[grooupD.size()];
                 lv_arr = grooupD.toArray(lv_arr);
-                list.setAdapter(new ArrayAdapter<String>(SearchScreen.this,
-                        android.R.layout.simple_list_item_1, lv_arr));
+                listAdapter = new ArrayAdapter<String>(SearchScreen.this,
+                        android.R.layout.simple_list_item_1, lv_arr);
+                list.setAdapter(listAdapter);
+
 
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     public void onItemClick(AdapterView<?> myAdapter, View myView, int pos, long mylng) {
@@ -93,7 +99,28 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                         System.out.println(selectedFromList);
                     }
                 });
+
+                filterText.addTextChangedListener(new TextWatcher() {
+
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        SearchScreen.this.listAdapter.getFilter().filter(s);
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+                    }
+                });
             }
+
+
+
+
+
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
