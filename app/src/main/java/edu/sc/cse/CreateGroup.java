@@ -1,11 +1,7 @@
 package edu.sc.cse;
 import edu.sc.cse.R;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.iid.FirebaseInstanceId;
-
-
-
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -17,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.content.Context;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AutoCompleteTextView;
 import android.widget.RemoteViews;
 import android.media.RingtoneManager;
 import android.media.Ringtone;
@@ -58,13 +55,17 @@ import java.util.List;
 public class CreateGroup extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener
 {
 
+    //  AutoComplete
+    AutoCompleteTextView autocomplete;
+
+
     private static final String TAG = "MainActivity";
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     private EditText locationField;
     private TextView timeField;
     private DatePicker dateField;
     private EditText descriptionField;
-    private Spinner nameField;
+    private AutoCompleteTextView nameField;
     Button aButton;
 
     private NotificationCompat.Builder builder;
@@ -77,9 +78,8 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
     Calendar c = Calendar.getInstance();
     TextView display;
 
-    //  Spinner
+    //  Class Names List
     private String[] states;
-    private Spinner spinner;
 
 
     @Override
@@ -118,43 +118,14 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         aButton = (Button) findViewById(edu.sc.cse.R.id.create_room);
         aButton.setOnClickListener(this);
 
-        //  Spinner
+        // AutoComplete class list box
         states = getResources().getStringArray(R.array.classes_list);
-        spinner = (Spinner) findViewById(R.id.classes_spinner);
-
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, states);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(dataAdapter);
-
-
-// Can't delete atm
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View view)
-//            {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        } );
-
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view,
-                                       int position, long id) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-
-            }
-        });
-
-
+        autocomplete = (AutoCompleteTextView)
+                findViewById(R.id.autoCompleteTextView1);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>
+                (this,android.R.layout.select_dialog_item, states);
+        autocomplete.setThreshold(2);
+        autocomplete.setAdapter(adapter);
     }
 
     @Override
@@ -231,8 +202,8 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 
     public void addGroup()
     {
-        nameField = (Spinner) findViewById(R.id.classes_spinner);
-        String groupName = nameField.getSelectedItem().toString();
+        nameField = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView1);
+        String groupName = nameField.getText().toString();
 
         locationField = (EditText) findViewById(R.id.Location);
         String groupLocation = locationField.getText().toString();
@@ -264,7 +235,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
     }
 
     public void studyRoomButtonClick(View view) {
-        Uri uri = Uri.parse("http://libcal.library.sc.edu/"); // missing 'http://' will cause crashed
+        Uri uri = Uri.parse("http://libcal.library.sc.edu/");
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
 

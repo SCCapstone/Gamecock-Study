@@ -21,39 +21,36 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
-            <Spinner
-                android:id="@+id/classes_spinner"
-                android:layout_width="fill_parent"
-                android:layout_height="80dp"
-                android:prompt="@string/classes_prompt"
-                android:spinnerMode="dialog"
-                style="@style/Widget.AppCompat.Spinner" />
 
-            <!--<EditText-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="80dp"-->
-            <!--android:inputType="textCapSentences|textPersonName"-->
-            <!--android:ems="10"-->
-            <!--android:id="@+id/Name"-->
-            <!--android:hint="Class:" />-->
+
+            <AutoCompleteTextView
+                android:id="@+id/autoCompleteTextView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/textView2"
+                android:layout_below="@+id/textView2"
+                android:ems="10"
+                android:hint="Enter a class:"
+                android:maxLines="1"/>
+
 
             <EditText
-                android:layout_width="match_parent"
-                android:ems="10"
                 android:id="@+id/Location"
-                android:inputType="textCapSentences|text"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:ems="10"
                 android:hint="Location:"
-                android:layout_height="80dp" />
+                android:inputType="textCapSentences|text" />
 
             <EditText
-                android:layout_width="match_parent"
-                android:inputType="textCapSentences|text"
-                android:ems="10"
                 android:id="@+id/Description"
-                android:hint="Description"
-                android:layout_height="80dp" />
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:ems="10"
+                android:hint="Description:"
+                android:inputType="textCapSentences|text" />
 
             <TextView
                 android:id="@+id/displayTimeText"
@@ -67,56 +64,43 @@
                 android:id="@+id/chooseTimeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Set Time"
-                android:layout_marginTop="10dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
+                android:text="Set Time"
                 android:textSize="20dp" />
 
 
 
-            <!--<EditText-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:inputType="time"-->
-            <!--android:ems="10"-->
-            <!--android:id="@+id/Time"-->
-            <!--android:hint="Time:"-->
-            <!--android:layout_height="80dp" />-->
-
             <DatePicker
+                android:id="@+id/datePicker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:id="@+id/datePicker" />
+                android:layout_marginTop="10dp" />
 
-            <!--<EditText-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:inputType="date"-->
-            <!--android:ems="10"-->
-            <!--android:id="@+id/Date"-->
-            <!--android:hint="Date:"-->
-            <!--android:layout_height="80dp" />-->
 
             <ImageButton
+                android:id="@+id/study_room_button"
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
-                android:scaleType="fitXY"
-                android:background="@mipmap/book_study_room"
                 android:layout_margin="10dp"
+                android:background="@mipmap/book_study_room"
                 android:onClick="studyRoomButtonClick"
-                android:id="@+id/study_room_button" />
+                android:scaleType="fitXY" />
 
             <Button
-                android:text="CREATE"
-                android:layout_height="wrap_content"
                 android:id="@+id/create_room"
-                android:onClick="@+id/createButton"
-                android:background="@color/colorPrimary"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="10dp"
+                android:background="@color/colorPrimary"
+                android:onClick="@+id/createButton"
+                android:text="CREATE"
                 android:textColor="@color/common_google_signin_btn_text_dark_default" />
         </LinearLayout>
     </ScrollView>
+
+
 
 
 </LinearLayout>

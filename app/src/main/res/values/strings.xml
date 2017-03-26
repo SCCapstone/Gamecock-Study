@@ -20,6 +20,9 @@
 
     <string name="action_settings">Settings</string>
 
+<!-- New -->
+    <string name="example_autocompletetextview">Example showing AutoCompleteTextView</string>
+
 
     <string name="classes_prompt">Choose a class</string>
     <string-array name="classes_list">
