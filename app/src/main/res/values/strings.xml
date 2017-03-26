@@ -5,11 +5,11 @@
     <string name="my_study_events">My Study Events</string>
     <string name="create_study_event">Create Study Event</string>
     <string name="find_study_event">Find Study Event</string>
-    <string name="title_activity_create_group">Create Group</string>
-    <string name="title_activity_group_name_screen">Group Name</string>
-    <string name="title_activity_search_screen">Study Groups</string>
+    <string name="title_activity_create_group">Create Study Event</string>
+    <string name="title_activity_group_name_screen">Event Name</string>
+    <string name="title_activity_search_screen">Find Study Event</string>
     <string name="title_activity_notification">Notification Button</string>
-    <string name="title_activity_my_events">MyEvents</string>
+    <string name="title_activity_my_events">My Study Events</string>
     <string name="facebook_app_id">fb199153220484310</string>
 
 

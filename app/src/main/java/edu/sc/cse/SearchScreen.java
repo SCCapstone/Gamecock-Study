@@ -79,7 +79,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                 for (DataSnapshot areaSnapshot: snapshot.getChildren()) {
                     final StudyGroup temp = areaSnapshot.getValue(StudyGroup.class);
                     studygroups.add(temp);
-                    grooupD.add(temp.getCourse()+"\n"+temp.getDate()+"\nHost: "+temp.getHost());
+                    grooupD.add(temp.getCourse() + "\n" + temp.getDate() + "\n" + temp.getTime() + "\nHost: " + temp.getHost());
                 }
 
                 // Puts items from database into a list

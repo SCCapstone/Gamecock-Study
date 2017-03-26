@@ -47,12 +47,12 @@
 
     <Button
         android:id="@+id/sign_in_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/button_shape"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
         android:layout_below="@+id/password_field"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
+        android:background="@drawable/button_shape"
         android:onClick="signInClicked"
         android:shadowColor="#A8A8A8"
         android:shadowDx="0"
@@ -63,9 +63,12 @@
 
     <Button
         android:id="@+id/create_account_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
 
+        android:layout_below="@+id/sign_in_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:background="@drawable/button_shape"
         android:onClick="createButtonClicked"
         android:shadowColor="#A8A8A8"
@@ -73,10 +76,7 @@
         android:shadowDy="0"
         android:shadowRadius="5"
         android:text="Create Account"
-        android:textColor="#FFFFFFFF"
-        android:layout_below="@+id/sign_in_button"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp" />
+        android:textColor="#FFFFFFFF" />
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/login_button"
