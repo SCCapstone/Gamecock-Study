@@ -25,6 +25,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -248,6 +249,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
 
         } else if (id == R.id.nav_logout) {
             FirebaseAuth.getInstance().signOut();
+            LoginManager.getInstance().logOut();
             startActivity(new Intent(SearchScreen.this, LoginScreen.class));
 
         }

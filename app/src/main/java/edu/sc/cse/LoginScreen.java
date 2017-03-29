@@ -212,6 +212,12 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
         System.out.println(email);
     }
 
+//    static void signOut() {
+//        auth.signOut();
+//        LoginManager.getInstance().logOut();
+//
+//        updateUI(null);
+//    }
     @Override
     public void onStart()
     {
@@ -349,11 +355,6 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                         }
                     }
                 } );
-    }
-
-    private void signOut()
-    {
-        auth.signOut();
     }
 
     private void updateUI(FirebaseUser user) {

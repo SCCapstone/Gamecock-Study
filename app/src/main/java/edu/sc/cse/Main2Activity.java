@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.content.Intent;
 
+import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -125,6 +126,8 @@ public class Main2Activity extends AppCompatActivity
 
         } else if (id == R.id.nav_logout) {
             FirebaseAuth.getInstance().signOut();
+            LoginManager.getInstance().logOut();
+
             startActivity(new Intent(Main2Activity.this, LoginScreen.class));
 
         }

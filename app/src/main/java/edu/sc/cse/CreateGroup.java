@@ -1,5 +1,7 @@
 package edu.sc.cse;
 import edu.sc.cse.R;
+
+import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.iid.FirebaseInstanceId;
 import android.os.Bundle;
@@ -291,6 +293,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 
         } else if (id == R.id.nav_logout) {
             FirebaseAuth.getInstance().signOut();
+            LoginManager.getInstance().logOut();
             startActivity(new Intent(CreateGroup.this, LoginScreen.class));
 
         }
