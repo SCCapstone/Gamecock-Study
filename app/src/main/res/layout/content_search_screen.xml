@@ -25,9 +25,9 @@
 
         android:layout_height="wrap_content"
         android:maxLines="1"
+        android:singleLine = "true"
         android:ellipsize="end"
         android:id="@+id/editText"
-        android:singleLine="true"
         android:layout_marginLeft="20dp"
 
         android:layout_marginRight="20dp"
@@ -41,8 +41,9 @@
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:textAlignment="center"
         android:id="@+id/listView"
-        android:dividerHeight="5dp"
+        android:dividerHeight="2dp"
         android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/editText"
