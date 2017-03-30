@@ -110,6 +110,21 @@
         <item>BIOL 804</item>
         <item>BIOL 806</item>
         <item>BIOL 899</item>
+        <item>BMEN 101</item>
+        <item>BMEN 202</item>
+        <item>BMEN 211</item>
+        <item>BMEN 271</item>
+        <item>BMEN 321</item>
+        <item>BMEN 389</item>
+        <item>BMEN 391</item>
+        <item>BMEN 427</item>
+        <item>BMEN 589</item>
+        <item>BMEN 710</item>
+        <item>BMEN 713</item>
+        <item>BMEN 720</item>
+        <item>BMEN 797</item>
+        <item>BMEN 799</item>
+        <item>BMEN 899</item>
         <item>CHEM 102</item>
         <item>CHEM 105</item>
         <item>CHEM 102</item>
@@ -323,6 +338,37 @@
         <item>ECON 840</item>
         <item>ECON 880</item>
         <item>ECON 899</item>
+        <item>ELCT 102</item>
+        <item>ELCT 201</item>
+        <item>ELCT 220</item>
+        <item>ELCT 221</item>
+        <item>ELCT 222</item>
+        <item>ELCT 301</item>
+        <item>ELCT 302</item>
+        <item>ELCT 321</item>
+        <item>ELCT 331</item>
+        <item>ELCT 350</item>
+        <item>ELCT 361</item>
+        <item>ELCT 363</item>
+        <item>ELCT 371</item>
+        <item>ELCT 403</item>
+        <item>ELCT 404</item>
+        <item>ELCT 499</item>
+        <item>ELCT 510</item>
+        <item>ELCT 531</item>
+        <item>ELCT 541</item>
+        <item>ELCT 553</item>
+        <item>ELCT 554</item>
+        <item>ELCT 559</item>
+        <item>ELCT 563</item>
+        <item>ELCT 732</item>
+        <item>ELCT 772</item>
+        <item>ELCT 797</item>
+        <item>ELCT 799</item>
+        <item>ELCT 862</item>
+        <item>ELCT 891</item>
+        <item>ELCT 897</item>
+        <item>ELCT 899</item>
         <item>EMCH 101</item>
         <item>EMCH 111</item>
         <item>EMCH 200</item>
@@ -364,37 +410,67 @@
         <item>EMCH 797</item>
         <item>EMCH 799</item>
         <item>EMCH 899</item>
-        <item>ELCT 102</item>
-        <item>ELCT 201</item>
-        <item>ELCT 220</item>
-        <item>ELCT 221</item>
-        <item>ELCT 222</item>
-        <item>ELCT 301</item>
-        <item>ELCT 302</item>
-        <item>ELCT 321</item>
-        <item>ELCT 331</item>
-        <item>ELCT 350</item>
-        <item>ELCT 361</item>
-        <item>ELCT 363</item>
-        <item>ELCT 371</item>
-        <item>ELCT 403</item>
-        <item>ELCT 404</item>
-        <item>ELCT 499</item>
-        <item>ELCT 510</item>
-        <item>ELCT 531</item>
-        <item>ELCT 541</item>
-        <item>ELCT 553</item>
-        <item>ELCT 554</item>
-        <item>ELCT 559</item>
-        <item>ELCT 563</item>
-        <item>ELCT 732</item>
-        <item>ELCT 772</item>
-        <item>ELCT 797</item>
-        <item>ELCT 799</item>
-        <item>ELCT 862</item>
-        <item>ELCT 891</item>
-        <item>ELCT 897</item>
-        <item>ELCT 899</item>
+        <item>ENGL 101</item>
+        <item>ENGL 102</item>
+        <item>ENGL 270</item>
+        <item>ENGL 282</item>
+        <item>ENGL 283</item>
+        <item>ENGL 284</item>
+        <item>ENGL 285</item>
+        <item>ENGL 286</item>
+        <item>ENGL 287</item>
+        <item>ENGL 288</item>
+        <item>ENGL 350</item>
+        <item>ENGL 360</item>
+        <item>ENGL 380</item>
+        <item>ENGL 381</item>
+        <item>ENGL 382</item>
+        <item>ENGL 387</item>
+        <item>ENGL 388</item>
+        <item>ENGL 389</item>
+        <item>ENGL 390</item>
+        <item>ENGL 393</item>
+        <item>ENGL 401</item>
+        <item>ENGL 405</item>
+        <item>ENGL 411</item>
+        <item>ENGL 413</item>
+        <item>ENGL 415</item>
+        <item>ENGL 419</item>
+        <item>ENGL 421</item>
+        <item>ENGL 423</item>
+        <item>ENGL 428</item>
+        <item>ENGL 429</item>
+        <item>ENGL 430</item>
+        <item>ENGL 431</item>
+        <item>ENGL 437</item>
+        <item>ENGL 439</item>
+        <item>ENGL 450</item>
+        <item>ENGL 457</item>
+        <item>ENGL 460</item>
+        <item>ENGL 461</item>
+        <item>ENGL 462</item>
+        <item>ENGL 463</item>
+        <item>ENGL 464</item>
+        <item>ENGL 468</item>
+        <item>ENGL 492</item>
+        <item>ENGL 600</item>
+        <item>ENGL 602</item>
+        <item>ENGL 691</item>
+        <item>ENGL 706</item>
+        <item>ENGL 709</item>
+        <item>ENGL 721</item>
+        <item>ENGL 722</item>
+        <item>ENGL 733</item>
+        <item>ENGL 741</item>
+        <item>ENGL 748</item>
+        <item>ENGL 790</item>
+        <item>ENGL 793</item>
+        <item>ENGL 799</item>
+        <item>ENGL 803</item>
+        <item>ENGL 804</item>
+        <item>ENGL 895</item>
+        <item>ENGL 896</item>
+        <item>ENGL 899</item>
         <item>HIST 101</item>
         <item>HIST 102</item>
         <item>HIST 103</item>
@@ -519,6 +595,11 @@
         <item>PHYS 761</item>
         <item>PHYS 799</item>
         <item>PHYS 899</item>
+        <item>PUBH 102</item>
+        <item>PUBH 399</item>
+        <item>PUBH 498</item>
+        <item>PUBH 700</item>
+        <item>PUBH 798</item>
         <item>SCHC 115</item>
         <item>SCHC 115L</item>
         <item>SCHC 158</item>
