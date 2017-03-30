@@ -245,6 +245,64 @@
         <item>CSCE 799</item>
         <item>CSCE 813</item>
         <item>CSCE 899</item>
+        <item>ECHE 101</item>
+        <item>ECHE 202</item>
+        <item>ECHE 300</item>
+        <item>ECHE 310</item>
+        <item>ECHE 311</item>
+        <item>ECHE 320</item>
+        <item>ECHE 321</item>
+        <item>ECHE 372</item>
+        <item>ECHE 430</item>
+        <item>ECHE 440</item>
+        <item>ECHE 461</item>
+        <item>ECHE 465</item>
+        <item>ECHE 499</item>
+        <item>ECHE 550</item>
+        <item>ECHE 571</item>
+        <item>ECHE 700</item>
+        <item>ECHE 710</item>
+        <item>ECHE 720</item>
+        <item>ECHE 789</item>
+        <item>ECHE 797</item>
+        <item>ECHE 798</item>
+        <item>ECHE 799</item>
+        <item>ECHE 899</item>
+        <item>ECIV 101</item>
+        <item>ECIV 111</item>
+        <item>ECIV 200</item>
+        <item>ECIV 201</item>
+        <item>ECIV 210</item>
+        <item>ECIV 220</item>
+        <item>ECIV 303</item>
+        <item>ECIV 320</item>
+        <item>ECIV 327</item>
+        <item>ECIV 340</item>
+        <item>ECIV 350</item>
+        <item>ECIV 360</item>
+        <item>ECIV 362</item>
+        <item>ECIV 470</item>
+        <item>ECIV 490</item>
+        <item>ECIV 497</item>
+        <item>ECIV 520</item>
+        <item>ECIV 526</item>
+        <item>ECIV 540</item>
+        <item>ECIV 541</item>
+        <item>ECIV 551</item>
+        <item>ECIV 558</item>
+        <item>ECIV 560</item>
+        <item>ECIV 580</item>
+        <item>ECIV 728</item>
+        <item>ECIV 730</item>
+        <item>ECIV 734</item>
+        <item>ECIV 752</item>
+        <item>ECIV 765</item>
+        <item>ECIV 784</item>
+        <item>ECIV 790</item>
+        <item>ECIV 797</item>
+        <item>ECIV 798</item>
+        <item>ECIV 799</item>
+        <item>ECIV 899</item>
         <item>ECON 221</item>
         <item>ECON 222</item>
         <item>ECON 321</item>
@@ -530,6 +588,12 @@
         <item>SPAN 799</item>
         <item>SPAN 881</item>
         <item>SPAN 899</item>
+        <item>SPCH 140</item>
+        <item>SPCH 145</item>
+        <item>SPCH 213</item>
+        <item>SPCH 230</item>
+        <item>SPCH 260</item>
+        <item>SPCH 387</item>
 
 
     </string-array>

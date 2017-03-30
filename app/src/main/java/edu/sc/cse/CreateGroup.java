@@ -42,10 +42,6 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-
-
-
-
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -166,10 +162,16 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
                         .setContentIntent(pendingIntent);
                 notificationManager.notify(notification_id,builder.build());
 
+                //vibrate on notification
+
+
+
                 //  Sound to notification
                 Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
                 Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
                 r.play();
+
+
 
                 startActivity(intent);
                 break;
