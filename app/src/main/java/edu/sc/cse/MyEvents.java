@@ -8,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -27,10 +29,11 @@ import java.util.ArrayList;
 
 import static android.widget.AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
 
+
 public class MyEvents extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-
+    public static StudyGroup currentG;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -73,12 +76,13 @@ public class MyEvents extends AppCompatActivity
 
                 final ListView list = (ListView) findViewById(edu.sc.cse.R.id.listView);
                 String[] lv_arr = {};
-
+                final ArrayList<StudyGroup> groupA = new ArrayList<StudyGroup>();
                 ArrayList<String> grooupD = new ArrayList<>();
                 for (DataSnapshot areaSnapshot: snapshot.getChildren()) {
                     final StudyGroup temp = areaSnapshot.getValue(StudyGroup.class);
 
                     if (temp.getMembers().contains(LoginScreen.email)) {
+                        groupA.add(temp);
                         grooupD.add(temp.getCourse() + "\n" + temp.getDate() + "\n" + temp.getTime() + "\nHost: " + temp.getHost());
                     }
                 }
@@ -93,9 +97,14 @@ public class MyEvents extends AppCompatActivity
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     public void onItemClick(AdapterView<?> myAdapter, View myView, int pos, long mylng) {
                         String selectedFromList =(list.getItemAtPosition(pos).toString());
-
-                        // This is your selected item
                         System.out.println(selectedFromList);
+                        currentG = groupA.get(pos);
+                        Intent intent = new Intent(MyEvents.this, EventScreen.class);
+                        startActivity(intent);
+
+                        Toast.makeText(MyEvents.this, currentG.getHost(), Toast.LENGTH_SHORT).show();
+                        // This is your selected item
+                        Log.d("GROUP",currentG.getHost() + "test");
 
                     }
                 });

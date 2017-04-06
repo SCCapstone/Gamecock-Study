@@ -75,7 +75,7 @@
                 android:inputType="textPersonName" />
 
             <Button
-                android:id="@+id/StudyEventButton"
+                android:id="@+id/eventB"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
