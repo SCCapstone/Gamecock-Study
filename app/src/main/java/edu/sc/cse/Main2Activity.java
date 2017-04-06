@@ -79,6 +79,8 @@ public class Main2Activity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
+        moveTaskToBack(true);
+        LoginManager.getInstance().logOut();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
