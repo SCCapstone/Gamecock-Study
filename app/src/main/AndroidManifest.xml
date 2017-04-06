@@ -52,28 +52,26 @@
             android:label="@string/title_activity_my_events"
             android:theme="@style/AppTheme.NoActionBar" />
 
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
 
-        <activity android:name="com.facebook.FacebookActivity"
+        <activity
+            android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:label="@string/app_name" />
-
-
-
-
-
-
-
-
-
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
             android:name=".Button_listener"
             android:label="@string/title_activity_button_listener"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <uses-permission android:name="android.permission.VIBRATE" />
+
+        <activity
+            android:name=".EventScreen"
+            android:label="@string/title_activity_event_screen"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

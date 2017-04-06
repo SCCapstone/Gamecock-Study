@@ -13,14 +13,12 @@
     <string name="facebook_app_id">fb199153220484310</string>
 
 
-
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
 
-<!-- New -->
+    <!-- New -->
     <string name="example_autocompletetextview">Example showing AutoCompleteTextView</string>
 
 
@@ -726,4 +724,5 @@
 
     </string-array>
     <string name="title_activity_button_listener">Button_listener</string>
+    <string name="title_activity_event_screen">EventScreen</string>
 </resources>
