@@ -567,7 +567,80 @@
         <item>MATH 785</item>
         <item>MATH 792</item>
         <item>MATH 899</item>
+        <item>NURS 212</item>
+        <item>NURS 216</item>
+        <item>NURS 250</item>
+        <item>NURS 311</item>
+        <item>NURS 312</item>
+        <item>NURS 313</item>
+        <item>NURS 314</item>
+        <item>NURS 318</item>
+        <item>NURS 324</item>
+        <item>NURS 398</item>
+        <item>NURS 400</item>
+        <item>NURS 411</item>
+        <item>NURS 412</item>
+        <item>NURS 420</item>
+        <item>NURS 422</item>
+        <item>NURS 424</item>
+        <item>NURS 425</item>
+        <item>NURS 428</item>
+        <item>NURS 431</item>
+        <item>NURS 434</item>
+        <item>NURS 435</item>
+        <item>NURS 504</item>
+        <item>NURS 700</item>
+        <item>NURS 702</item>
+        <item>NURS 704</item>
+        <item>NURS 705</item>
+        <item>NURS 706</item>
+        <item>NURS 707</item>
+        <item>NURS 708</item>
+        <item>NURS 718</item>
+        <item>NURS 720</item>
+        <item>NURS 722</item>
+        <item>NURS 724</item>
+        <item>NURS 731</item>
+        <item>NURS 734</item>
+        <item>NURS 737</item>
+        <item>NURS 740</item>
+        <item>NURS 741</item>
+        <item>NURS 742</item>
+        <item>NURS 707</item>
+        <item>NURS 708</item>
+        <item>NURS 717</item>
+        <item>NURS 718</item>
+        <item>NURS 720</item>
         <item>PHYS 101</item>
+        <item>NURS 722</item>
+        <item>NURS 724</item>
+        <item>NURS 731</item>
+        <item>NURS 734</item>
+        <item>NURS 737</item>
+        <item>NURS 740</item>
+        <item>NURS 741</item>
+        <item>NURS 742</item>
+        <item>NURS 770</item>
+        <item>NURS 786</item>
+        <item>NURS 790</item>
+        <item>NURS 791</item>
+        <item>NURS 793</item>
+        <item>NURS 796</item>
+        <item>NURS 798</item>
+        <item>NURS 799</item>
+        <item>NURS 800</item>
+        <item>NURS 804</item>
+        <item>NURS 805</item>
+        <item>NURS 809</item>
+        <item>NURS 813</item>
+        <item>NURS 817</item>
+        <item>NURS 820</item>
+        <item>NURS 821</item>
+        <item>NURS 840</item>
+        <item>NURS 870</item>
+        <item>NURS 897</item>
+        <item>NURS 898</item>
+        <item>NURS 899</item>
         <item>PHYS 101L</item>
         <item>PHYS 155</item>
         <item>PHYS 155L</item>
@@ -704,6 +777,27 @@
         <item>STAT 824</item>
         <item>STAT 890</item>
         <item>STAT 899</item>
+        <item>MKTG 350</item>
+        <item>MKTG 351</item>
+        <item>MKTG 352</item>
+        <item>MKTG 445</item>
+        <item>MKTG 446</item>
+        <item>MKTG 451</item>
+        <item>MKTG 453</item>
+        <item>MKTG 454</item>
+        <item>MKTG 457</item>
+        <item>MKTG 461</item>
+        <item>MKTG 465</item>
+        <item>MKTG 701</item>
+        <item>MKTG 704</item>
+        <item>MKTG 707</item>
+        <item>MKTG 712</item>
+        <item>MKTG 715</item>
+        <item>MKTG 717</item>
+        <item>MKTG 750</item>
+        <item>MKTG 850</item>
+        <item>MKTG 851</item>
+        <item>MKTG 857</item>
         <item></item>
         <item></item>
         <item></item>
@@ -720,7 +814,27 @@
         <item></item>
         <item></item>
         <item></item>
-
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
 
     </string-array>
     <string name="title_activity_button_listener">Button_listener</string>
