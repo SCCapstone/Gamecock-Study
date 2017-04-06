@@ -256,6 +256,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         }
     }
 
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -277,7 +278,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 
         return super.onOptionsItemSelected(item);
     }
-
+*/
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {

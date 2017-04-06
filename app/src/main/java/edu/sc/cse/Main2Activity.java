@@ -88,13 +88,14 @@ public class Main2Activity extends AppCompatActivity
             super.onBackPressed();
         }
     }
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.activity_main2, menu);
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -110,6 +111,9 @@ public class Main2Activity extends AppCompatActivity
 
         return super.onOptionsItemSelected(item);
     }
+
+*/
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
