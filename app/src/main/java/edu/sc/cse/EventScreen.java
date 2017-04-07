@@ -2,12 +2,14 @@ package edu.sc.cse;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -38,6 +40,7 @@ public class EventScreen extends AppCompatActivity implements View.OnClickListen
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         findViewById(R.id.eventB).setOnClickListener(this);
+        findViewById(R.id.eventC).setOnClickListener(this);
         course = (TextView) findViewById(R.id.course);
         event_date = (TextView) findViewById(R.id.event_date);
         event_time = (TextView) findViewById(R.id.event_time);
@@ -53,6 +56,33 @@ public class EventScreen extends AppCompatActivity implements View.OnClickListen
         event_members.setText("Members: "+ MyEvents.currentG.getMembers().toString());
         event_description.setText("Description: " + MyEvents.currentG.getDescription());
 
+    }
+
+    protected void composeMail() {
+        Log.i("Send email", "");
+
+        //String[] TO = {MyEvents.currentG.getMembers().toString()};
+        String[] TO = {MyEvents.currentG.getMembers().toString().substring(1, MyEvents.currentG.getMembers().toString().length()-1).replace("null", "")};
+        String[] CC = {""};
+
+
+
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setData(Uri.parse("mailto:"));
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
+        emailIntent.putExtra(Intent.EXTRA_CC, CC);
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Study Group");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Hey guys...");
+
+        try {
+            startActivity(Intent.createChooser(emailIntent, "Send mail..."));
+            finish();
+            Log.i("Finished sending email ", "");
+        } catch (android.content.ActivityNotFoundException ex) {
+//            Toast.makeText(MainActivity.this,
+//                    "There is no email client installed.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void leavegroup()
@@ -106,6 +136,11 @@ public class EventScreen extends AppCompatActivity implements View.OnClickListen
         if(v.getId() == R.id.eventB)
         {
             leavegroup();
+
+        }
+        if(v.getId() == R.id.eventC)
+        {
+            composeMail();
 
         }
 
