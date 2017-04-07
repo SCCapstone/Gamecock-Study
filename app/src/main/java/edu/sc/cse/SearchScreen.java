@@ -81,7 +81,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                 for (DataSnapshot areaSnapshot: snapshot.getChildren()) {
                     final StudyGroup temp = areaSnapshot.getValue(StudyGroup.class);
                     studygroups.add(temp);
-                    grooupD.add(temp.getCourse() + "\n" + temp.getDate() + "\n" + temp.getTime() + "\nHost: " + temp.getHost());
+                    grooupD.add(temp.getCourse() + "\n" + temp.getDate() + "\n" + temp.getTime() + "\n" + temp.getLocation() + "\nHost: " + temp.getHost());
                 }
 
                 // Puts items from database into a list
@@ -188,7 +188,9 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                                     final ArrayList<String> m = temp;
                                     myRef.child(course +"/members").setValue(temp);
                                     Toast.makeText(SearchScreen.this,
-                                            "You have joined StudyGroup: " + course + "\n" + "Hosted by: "+group[4], Toast.LENGTH_LONG).show();//changed from group[6] to group[4]
+//                                            "You have joined StudyGroup! " + course + "\n" + "Hosted by: "+group[4], Toast.LENGTH_LONG).show();//changed from group[6] to group[4]
+//                                }})Toast.makeText(SearchScreen.this,
+                                    "Welcome to the group!", Toast.LENGTH_LONG).show();//changed from group[6] to group[4]
                                 }})
                             .setNegativeButton(android.R.string.no, null).show();
                 }
