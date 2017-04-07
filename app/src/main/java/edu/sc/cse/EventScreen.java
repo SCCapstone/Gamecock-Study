@@ -73,7 +73,13 @@ public class EventScreen extends AppCompatActivity implements View.OnClickListen
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
         emailIntent.putExtra(Intent.EXTRA_CC, CC);
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Study Group");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Hey guys...");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Hey guys... \n" + " \n " + " \n " + " \n " +
+                "StudyGroup: \n" + " \n" +
+                MyEvents.currentG.getCourse().toString() + "\n" +
+                MyEvents.currentG.getDate().toString() + "\n" +
+                MyEvents.currentG.getTime().toString() + "\n" +
+                MyEvents.currentG.getLocation().toString() + "\nDescription: " +
+                MyEvents.currentG.getDescription().toString());
 
         try {
             startActivity(Intent.createChooser(emailIntent, "Send mail..."));
