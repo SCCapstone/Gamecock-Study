@@ -13,6 +13,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AutoCompleteTextView;
@@ -142,39 +143,40 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
                 String tkn = FirebaseInstanceId.getInstance().getToken();
 
                 //  Let user know they created a group
-                Toast.makeText(CreateGroup.this,
-                        "Group Created!", Toast.LENGTH_LONG).show();
-                Log.d("App", "Token [" + tkn + "]");
+//                Toast.makeText(CreateGroup.this,
+//                        "Group Created!", Toast.LENGTH_LONG).show();
+//                Log.d("App", "Token [" + tkn + "]");
 
                 //  If clicked button2, we go to addData(), where data is written to the DB
+                boolean success = false;
                 if (v.getId() == edu.sc.cse.R.id.create_room) {
-                    addGroup();
+                    success = addGroup();
                 }
 
                 Intent intent = new Intent(CreateGroup.this, Main2Activity.class);
                 PendingIntent pendingIntent=PendingIntent.getActivity(context,0,intent,0);
 
                 //  Notifications
-                builder=new NotificationCompat.Builder(context);
-                builder.setSmallIcon(R.mipmap.ic_launcher)
-                        .setAutoCancel(true)
-                        .setCustomContentView(remoteViews)
-                        .setContentIntent(pendingIntent);
-                notificationManager.notify(notification_id,builder.build());
+                if(success == true) {
+                    builder = new NotificationCompat.Builder(context);
+                    builder.setSmallIcon(R.mipmap.ic_launcher)
+                            .setAutoCancel(true)
+                            .setCustomContentView(remoteViews)
+                            .setContentIntent(pendingIntent);
+                    notificationManager.notify(notification_id, builder.build());
 
-                //vibrate on notification
-
-
-
-                //  Sound to notification
-                Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-                Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
-                r.play();
+                    //vibrate on notification
 
 
+                    //  Sound to notification
+                    Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+                    Ringtone r = RingtoneManager.getRingtone(getApplicationContext(), notification);
+                    r.play();
 
-                startActivity(intent);
-                break;
+
+                    startActivity(intent);
+                    break;
+                }
 
             default:
                 break;
@@ -204,14 +206,24 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
     };
 
 
-    public void addGroup()
+    public boolean addGroup()
     {
         nameField = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView1);
         String groupName = nameField.getText().toString();
+        if(TextUtils.isEmpty(groupName)) {
+            Toast.makeText(CreateGroup.this,
+                    "Cannot create group without a name.", Toast.LENGTH_LONG).show();
+            return false;
+        }
 
         locationField = (EditText) findViewById(R.id.Location);
         String groupLocation = locationField.getText().toString();
 
+        if(TextUtils.isEmpty(groupLocation)) {
+            Toast.makeText(CreateGroup.this,
+                    "Cannot create group without a location.", Toast.LENGTH_LONG).show();
+            return false;
+        }
 
         //  This is the new time picker (works)
         timeField = (TextView) findViewById(R.id.displayTimeText);
@@ -229,12 +241,23 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 
         descriptionField = (EditText) findViewById(R.id.Description);
         String groupDescription = descriptionField.getText().toString();
+        if(TextUtils.isEmpty(groupDescription)) {
+            Toast.makeText(CreateGroup.this,
+                    "Cannot create group without a description.", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+
         List<String> members = new ArrayList<>();
 
         DatabaseReference myRef = database.getReference("StudyGroup");
         members.add(LoginScreen.email);
         myRef.child(groupName).setValue(new StudyGroup(groupDate,groupDescription,groupLocation,members ,groupTime,groupName,LoginScreen.email));
 
+        Toast.makeText(CreateGroup.this,
+                "Group Created!", Toast.LENGTH_LONG).show();
+//        Log.d("App", "Token [" + tkn + "]");
+        return true;
 
     }
 
