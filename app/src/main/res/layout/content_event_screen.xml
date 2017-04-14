@@ -34,7 +34,7 @@
                 android:textSize="35sp"
                 android:textAlignment="center"
                 android:textStyle="bold"
-                android:background="#D7D7D7"
+                android:background="#D2D2D2"
                 android:textColor="@color/colorPrimary"
                 android:inputType="textShortMessage" />
 
