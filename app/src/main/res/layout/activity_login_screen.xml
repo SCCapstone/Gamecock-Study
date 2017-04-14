@@ -86,4 +86,15 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp" />
 
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:layout_alignLeft="@+id/password_field"
+        android:layout_alignStart="@+id/password_field"
+        android:layout_below="@+id/password_field"
+        android:text="**Must be 6+ characters**" />
+
+
 </RelativeLayout>
