@@ -37,15 +37,6 @@ public class MyEvents extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
-
-
-
-
-
-
-
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_events);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -61,11 +52,6 @@ public class MyEvents extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-
-
-
-
 
 
         final DatabaseReference myRef2 = database.getReference();
@@ -102,7 +88,7 @@ public class MyEvents extends AppCompatActivity
                         Intent intent = new Intent(MyEvents.this, EventScreen.class);
                         startActivity(intent);
 
-                        Toast.makeText(MyEvents.this, currentG.getHost(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MyEvents.this, currentG.getHost(), Toast.LENGTH_SHORT).show();
                         // This is your selected item
                         Log.d("GROUP",currentG.getHost() + "test");
 

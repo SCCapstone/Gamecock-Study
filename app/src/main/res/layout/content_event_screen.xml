@@ -29,51 +29,69 @@
             <TextView
                 android:id="@+id/course"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:textSize="35sp"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:background="#D7D7D7"
+                android:textColor="@color/colorPrimary"
+                android:inputType="textShortMessage" />
+
 
             <TextView
                 android:id="@+id/event_date"
-                android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:textSize="18sp"
+                android:layout_weight="1"
+                android:inputType="date" />
 
             <TextView
                 android:id="@+id/event_time"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_weight="0"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="time" />
+
 
             <TextView
                 android:id="@+id/event_location"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="23dp"
+                android:textSize="18sp"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textShortMessage" />
 
             <TextView
                 android:id="@+id/event_host"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="23dp"
+                android:textSize="18sp"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="text" />
 
             <TextView
                 android:id="@+id/event_members"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textMultiLine" />
 
             <TextView
                 android:id="@+id/event_description"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:textSize="18sp"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textMultiLine" />
+
 
             <Button
                 android:id="@+id/eventC"

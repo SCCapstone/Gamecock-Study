@@ -838,5 +838,5 @@
 
     </string-array>
     <string name="title_activity_button_listener">Button_listener</string>
-    <string name="title_activity_event_screen">EventScreen</string>
+    <string name="title_activity_event_screen"></string>
 </resources>

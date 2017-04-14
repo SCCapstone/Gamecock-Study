@@ -48,13 +48,13 @@ public class EventScreen extends AppCompatActivity implements View.OnClickListen
         event_host = (TextView) findViewById(R.id.event_host);
         event_members = (TextView) findViewById(R.id.event_members);
         event_description = (TextView) findViewById(R.id.event_description);
-        course.setText("Course: "+MyEvents.currentG.getCourse());
-        event_date.setText("Date: "+MyEvents.currentG.getDate());
-        event_time.setText("Time: "+MyEvents.currentG.getTime());
-        event_location.setText("Location: " +MyEvents.currentG.getLocation());
+        course.setText(MyEvents.currentG.getCourse());
+        event_date.setText(MyEvents.currentG.getDate());
+        event_time.setText(MyEvents.currentG.getTime());
+        event_location.setText(MyEvents.currentG.getLocation());
         event_host.setText("Host: "+MyEvents.currentG.getHost());
-        event_members.setText("Members: "+ MyEvents.currentG.getMembers().toString());
-        event_description.setText("Description: " + MyEvents.currentG.getDescription());
+        event_members.setText("Members: "+ MyEvents.currentG.getMembers());
+        event_description.setText(MyEvents.currentG.getDescription());
 
     }
 
