@@ -212,7 +212,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
         System.out.println(email);
     }
 
-//    static void signOut() {
+    //    static void signOut() {
 //        auth.signOut();
 //        LoginManager.getInstance().logOut();
 //
@@ -247,7 +247,7 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
         mCallbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
-    private void createAccount(String email, String password) {
+    private void createAccount(String email, final String password) {
         Log.d(TAG, "createAccount:" + email);
         if (check() == false) {
             return;
@@ -260,8 +260,12 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                         Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
 
                         if (task.isSuccessful() == false) {
-                            Toast.makeText(LoginScreen.this, "Unable to Create Account",
-                                    Toast.LENGTH_SHORT).show();
+                            if (password.length() <6){
+                                Toast.makeText(LoginScreen.this, "Password must be 6 or more " +
+                                        "characters long.", Toast.LENGTH_LONG).show();
+                            }
+                            //Toast.makeText(LoginScreen.this, "Unable to Create Account",
+                                   // Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(LoginScreen.this, "Account Creation Successful!",
                                     Toast.LENGTH_SHORT).show();
