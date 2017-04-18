@@ -3,6 +3,8 @@ import edu.sc.cse.R;
 
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -81,6 +83,8 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
     private String[] states;
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -125,6 +129,8 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
                 (this,android.R.layout.select_dialog_item, states);
         autocomplete.setThreshold(2);
         autocomplete.setAdapter(adapter);
+
+
     }
 
     @Override
@@ -339,6 +345,8 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 
 }
 

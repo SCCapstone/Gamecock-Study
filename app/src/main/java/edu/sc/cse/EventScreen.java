@@ -53,7 +53,7 @@ public class EventScreen extends AppCompatActivity implements View.OnClickListen
         event_time.setText(MyEvents.currentG.getTime());
         event_location.setText(MyEvents.currentG.getLocation());
         event_host.setText("Host: "+MyEvents.currentG.getHost());
-        event_members.setText("Members: "+ MyEvents.currentG.getMembers());
+        event_members.setText("Members: "+ MyEvents.currentG.getMembers().toString().replace("[","").replace("]",""));
         event_description.setText(MyEvents.currentG.getDescription());
 
     }
