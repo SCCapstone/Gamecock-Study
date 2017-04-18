@@ -87,14 +87,14 @@
 
             <TextView
                 android:id="@+id/event_host"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:textAlignment="center"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="#d2d2d2"
                 android:textColor="#000000"
                 android:textSize="25sp"
-                android:inputType="text" />
+                android:inputType="textMultiLine" />
 
             <TextView
                 android:id="@+id/event_members"

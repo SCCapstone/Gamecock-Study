@@ -153,8 +153,10 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
                     success = addGroup();
                 }
 
-                Intent intent = new Intent(CreateGroup.this, Main2Activity.class);
+                Intent intent = new Intent(CreateGroup.this, MyEvents.class);
                 PendingIntent pendingIntent=PendingIntent.getActivity(context,0,intent,0);
+
+
 
                 //  Notifications
                 if(success == true) {
@@ -229,6 +231,13 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         timeField = (TextView) findViewById(R.id.displayTimeText);
         String groupTime = timeField.getText().toString();
 
+        if(TextUtils.isEmpty(groupTime)) {
+            Toast.makeText(CreateGroup.this,
+                    "Cannot create group without a time.", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+
         //  This is for the new Date Picker
         dateField = (DatePicker)findViewById(R.id.datePicker);
         Integer dobYear = dateField.getYear();
@@ -251,8 +260,10 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         List<String> members = new ArrayList<>();
 
         DatabaseReference myRef = database.getReference("StudyGroup");
+        //Log.d("Email", LoginScreen.email);
         members.add(LoginScreen.email);
         myRef.child(groupName).setValue(new StudyGroup(groupDate,groupDescription,groupLocation,members ,groupTime,groupName,LoginScreen.email));
+
 
         Toast.makeText(CreateGroup.this,
                 "Group Created!", Toast.LENGTH_LONG).show();
