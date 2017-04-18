@@ -3,6 +3,7 @@ package edu.sc.cse;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.DataSetObserver;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -81,7 +82,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                 for (DataSnapshot areaSnapshot: snapshot.getChildren()) {
                     final StudyGroup temp = areaSnapshot.getValue(StudyGroup.class);
                     studygroups.add(temp);
-                    grooupD.add(temp.getCourse() + "\n" + temp.getDate() + "\n" + temp.getTime() + "\n" + temp.getLocation() + "\nHost: " + temp.getHost());
+                    grooupD.add(temp.getCourse() + "\n" + temp.getDate() + "\t\t\t" + temp.getTime() + "\n" + temp.getLocation() + "\nHost: " + temp.getHost());
                 }
 
                 // Puts items from database into a list

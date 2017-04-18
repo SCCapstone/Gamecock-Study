@@ -1,6 +1,7 @@
 package edu.sc.cse;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -69,7 +70,7 @@ public class MyEvents extends AppCompatActivity
 
                     if (temp.getMembers().contains(LoginScreen.email)) {
                         groupA.add(temp);
-                        grooupD.add(temp.getCourse() + "\n" + temp.getDate() + "\n" + temp.getTime() + "\nHost: " + temp.getHost());
+                        grooupD.add(temp.getCourse() + "\n" + temp.getDate() + "\t\t\t" + temp.getTime() + "\nHost: " + temp.getHost());
                     }
                 }
 

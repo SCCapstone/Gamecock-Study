@@ -264,8 +264,8 @@ public class LoginScreen extends AppCompatActivity implements View.OnClickListen
                                 Toast.makeText(LoginScreen.this, "Password must be 6 or more " +
                                         "characters long.", Toast.LENGTH_LONG).show();
                             }
-                            //Toast.makeText(LoginScreen.this, "Unable to Create Account",
-                                   // Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginScreen.this, "Unable to Create Account",
+                                   Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(LoginScreen.this, "Account Creation Successful!",
                                     Toast.LENGTH_SHORT).show();
