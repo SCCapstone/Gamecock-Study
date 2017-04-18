@@ -73,7 +73,7 @@ public class EventScreen extends AppCompatActivity implements View.OnClickListen
         emailIntent.putExtra(Intent.EXTRA_EMAIL, TO);
         emailIntent.putExtra(Intent.EXTRA_CC, CC);
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Study Event");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Hey, join my event. \n" + " \n"+
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "Hey, join my event! \n" + " \n"+
                 "Study Event: \n" + "\n" +
                 MyEvents.currentG.getCourse().toString() + "\n" +
                 MyEvents.currentG.getDate().toString() + "\n" +
