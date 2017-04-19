@@ -4,6 +4,8 @@ import edu.sc.cse.R;
 import com.facebook.login.LoginManager;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import android.os.Bundle;
@@ -19,6 +21,7 @@ import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AutoCompleteTextView;
+import android.widget.ListView;
 import android.widget.RemoteViews;
 import android.media.RingtoneManager;
 import android.media.Ringtone;
@@ -51,6 +54,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
 
 public class CreateGroup extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener
@@ -81,7 +85,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 
     //  Class Names List
     private String[] states;
-
+    public static   String groupDate,groupDescription,groupLocation,members ,groupTime,groupName;
 
 
 
@@ -212,12 +216,78 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
                     minute, hourOfDay < 12 ? "AM" : "PM"));
         }
     };
+    //generate id
+    public String generateID()
+    {
+        Random r = new Random();
+        int d1 = r.nextInt(9);
+        int d2 = r.nextInt(9);
+        int d3 = r.nextInt(9);
+        int d4 = r.nextInt(9);
+        String id = d1+""+d2+""+d3+""+d4;
+//        DatabaseReference myRef = database.getReference();
+//        List<String> eventid = new ArrayList<>();
+//        eventid.add(id);
+//        myRef.child("EventID").setValue(eventid);
+        return (id);
+    }
+    //create method to check if id is in use
+    public void checkid()
+    {
+        Random r = new Random();
+        int d1 = r.nextInt(9);
+        int d2 = r.nextInt(9);
+        int d3 = r.nextInt(9);
+        int d4 = r.nextInt(9);
+        final String eventid = d1+""+d2+""+d3+""+d4;
+        List<String> members = new ArrayList<>();
+        //create function which generates random 4 digits
+        final DatabaseReference myRef = database.getReference("EventID");
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+
+                String eventid = generateID();
+                List<String> ids = new ArrayList<>();
+                GenericTypeIndicator<ArrayList<String>> t = new GenericTypeIndicator<ArrayList<String>>() {};
+                final ArrayList<String> temp  = snapshot.getValue(t);
+                ids = temp;
+                boolean duplicate = true;
+                while(duplicate)
+                {
+                    if(temp.contains(eventid))
+                    {
+                        eventid = generateID();
+                    }
+                    else {
+                        ids.add(eventid);
+                        myRef.setValue(ids);
+                        addgrouptofb(eventid);
+                        System.out.println(temp);
+                        duplicate = false;
+                    }
+                }
+
+                //members.add(LoginScreen.email);
+                //myRef.child(eventid).setValue(new StudyGroup(eventid,groupDate,groupDescription,groupLocation,members ,groupTime,groupName,LoginScreen.email));
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+
+        });
+
+        //generateID();
+        //Log.d("Email", LoginScreen.email);
+        //members.add(LoginScreen.email);
+        //myRef.child("test").setValue(new StudyGroup(eventid,groupDate,groupDescription,groupLocation,members ,groupTime,groupName,LoginScreen.email));
+    }
 
 
-    public boolean addGroup()
+    public boolean addGroup( )
     {
         nameField = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView1);
-        String groupName = nameField.getText().toString();
+         groupName = nameField.getText().toString();
         if(TextUtils.isEmpty(groupName)) {
             Toast.makeText(CreateGroup.this,
                     "Cannot create group without a name.", Toast.LENGTH_LONG).show();
@@ -225,7 +295,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         }
 
         locationField = (EditText) findViewById(R.id.Location);
-        String groupLocation = locationField.getText().toString();
+         groupLocation = locationField.getText().toString();
 
         if(TextUtils.isEmpty(groupLocation)) {
             Toast.makeText(CreateGroup.this,
@@ -235,7 +305,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
 
         //  This is the new time picker (works)
         timeField = (TextView) findViewById(R.id.displayTimeText);
-        String groupTime = timeField.getText().toString();
+         groupTime = timeField.getText().toString();
 
         if(TextUtils.isEmpty(groupTime)) {
             Toast.makeText(CreateGroup.this,
@@ -251,24 +321,21 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         Integer dobDate = dateField.getDayOfMonth();
         StringBuilder String=new StringBuilder();
         String.append(dobMonth.toString()).append("/").append(dobDate.toString()).append("/").append(dobYear.toString());
-        String groupDate=String.toString();
+         groupDate=String.toString();
 
 
         descriptionField = (EditText) findViewById(R.id.Description);
-        String groupDescription = descriptionField.getText().toString();
+         groupDescription = descriptionField.getText().toString();
         if(TextUtils.isEmpty(groupDescription)) {
             Toast.makeText(CreateGroup.this,
                     "Cannot create group without a description.", Toast.LENGTH_LONG).show();
             return false;
         }
 
-
-        List<String> members = new ArrayList<>();
-
-        DatabaseReference myRef = database.getReference("StudyGroup");
-        //Log.d("Email", LoginScreen.email);
-        members.add(LoginScreen.email);
-        myRef.child(groupName).setValue(new StudyGroup(groupDate,groupDescription,groupLocation,members ,groupTime,groupName,LoginScreen.email));
+        //boolean success;
+        //success = false;
+        //String id = generateID();
+        checkid();
 
 
         Toast.makeText(CreateGroup.this,
@@ -277,6 +344,14 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
         return true;
 
     }
+    public void addgrouptofb(String id)
+    {
+        List<String> members = new ArrayList<>();
+        members.add(LoginScreen.email);
+        DatabaseReference myref =  database.getReference("StudyGroup");
+        myref.child(id).setValue(new StudyGroup(id,groupDate,groupDescription,groupLocation,members ,groupTime,groupName,LoginScreen.email));
+    }
+
 
     public void studyRoomButtonClick(View view) {
         Uri uri = Uri.parse("http://libcal.library.sc.edu/");

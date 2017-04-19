@@ -18,12 +18,14 @@ public class StudyGroup {
     public String time;
     public String course;
     public String host;
+    public String eventid;
 
     public StudyGroup(){
 
     }
-    public StudyGroup(String date, String description, String location, List <String> members,String time, String course, String host) {
+    public StudyGroup(String eventid,String date, String description, String location, List <String> members,String time, String course, String host) {
         this.date =date;
+        this.eventid = eventid;
         this.description = description;
         this.location = location;
         this.members = members;
@@ -60,7 +62,12 @@ public class StudyGroup {
     public String getHost() {
         return host;
     }
-
+    public String getEventid() {
+        return eventid;
+    }
+    public void setEventid(String eventid) {
+        this.eventid = eventid;
+    }
     public void setDate(String date) {
         this.date = date;
     }
