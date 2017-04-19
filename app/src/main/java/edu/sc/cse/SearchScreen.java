@@ -48,6 +48,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
     List<StudyGroup> studygroups = new ArrayList<>();
     private EditText filterText;
     private ArrayAdapter<String> listAdapter;
+    public static String eventid;
 
 
     @Override
@@ -82,6 +83,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                 for (DataSnapshot areaSnapshot: snapshot.getChildren()) {
                     final StudyGroup temp = areaSnapshot.getValue(StudyGroup.class);
                     studygroups.add(temp);
+                    setid(temp.getEventid());
                     grooupD.add(temp.getCourse() + "\n" + temp.getDate() + "\t\t\t" + temp.getTime() + "\n" + temp.getLocation() + "\nHost: " + temp.getHost());
                 }
 
@@ -163,7 +165,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
 
          ArrayList<String> test2 = new ArrayList<>();
 
-        myRef.child( course +"/members").addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.child(eventid+"/members").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
 //TODO error is with temp!!!!!
@@ -187,7 +189,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     temp.add(LoginScreen.email);
                                     final ArrayList<String> m = temp;
-                                    myRef.child(course +"/members").setValue(temp);
+                                    myRef.child(eventid+"/members").setValue(temp);
                                     Toast.makeText(SearchScreen.this,
 //                                            "You have joined StudyGroup! " + course + "\n" + "Hosted by: "+group[4], Toast.LENGTH_LONG).show();//changed from group[6] to group[4]
 //                                }})Toast.makeText(SearchScreen.this,
@@ -203,6 +205,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
         });
 
     }
+
 
     @Override
     public void onBackPressed() {
@@ -238,6 +241,11 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
     }
 
 */
+    public void setid(String id)
+    {
+        eventid = id;
+    }
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
