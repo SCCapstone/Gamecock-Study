@@ -163,7 +163,7 @@ public class CreateGroup extends AppCompatActivity implements View.OnClickListen
                     success = addGroup();
                 }
 
-                Intent intent = new Intent(CreateGroup.this, MyEvents.class);
+                Intent intent = new Intent(CreateGroup.this, Main2Activity.class);
                 PendingIntent pendingIntent=PendingIntent.getActivity(context,0,intent,0);
 
 
