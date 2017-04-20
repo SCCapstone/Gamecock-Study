@@ -122,7 +122,20 @@ public class EventScreen extends AppCompatActivity implements View.OnClickListen
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     temp.remove(LoginScreen.email);
                                     final ArrayList<String> m = temp;
-                                    myRef.child(MyEvents.currentG.getEventid()+"/members").setValue(temp);
+                                    String t = LoginScreen.email.toLowerCase().trim().toString();
+                                    String t2 = MyEvents.currentG.getHost().trim().toString();
+                                    String r = (t.equals(t2)) + "";
+
+
+                                    Toast.makeText(EventScreen.this,
+                                                  r , Toast.LENGTH_LONG).show();//changed from group[6] to group[4]
+                                    if(t.equals(t2))
+                                    {
+                                        myRef.child(MyEvents.currentG.getEventid()).removeValue();
+                                    }
+                                    else {
+                                        myRef.child(MyEvents.currentG.getEventid() + "/members").setValue(temp);
+                                    }
                                     startActivity(new Intent(EventScreen.this, MyEvents.class));
                                    // Toast.makeText(EventScreen.this,
                                     //        "You have joined StudyGroup: " + course + "\n" + "Hosted by: "+group[4], Toast.LENGTH_LONG).show();//changed from group[6] to group[4]

@@ -104,11 +104,6 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                     public void onItemClick(AdapterView<?> myAdapter, View myView, int pos, long mylng) {
                         String selectedFromList =(list.getItemAtPosition(pos).toString());
                         currentG = groupA.get(pos);
-
-                        Toast.makeText(SearchScreen.this,
-//                                            "You have joined StudyGroup! " + course + "\n" + "Hosted by: "+group[4], Toast.LENGTH_LONG).show();//changed from group[6] to group[4]
-//                                }})Toast.makeText(SearchScreen.this,
-                                "currentg is" + currentG.getEventid(), Toast.LENGTH_LONG).show();
                         joinGroup(selectedFromList,LoginScreen.email);
 
                         // this is your selected item
