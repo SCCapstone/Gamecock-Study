@@ -200,7 +200,7 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     temp.add(LoginScreen.email);
                                     final ArrayList<String> m = temp;
-                                    myRef.child(currentG.getEventid()+"/members").setValue(temp);
+                                    myRef.setValue(temp);
                                     Toast.makeText(SearchScreen.this,
 //                                            "You have joined StudyGroup! " + course + "\n" + "Hosted by: "+group[4], Toast.LENGTH_LONG).show();//changed from group[6] to group[4]
 //                                }})Toast.makeText(SearchScreen.this,
