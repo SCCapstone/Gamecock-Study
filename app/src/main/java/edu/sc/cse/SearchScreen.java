@@ -49,6 +49,8 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
     private EditText filterText;
     private ArrayAdapter<String> listAdapter;
     public static String eventid;
+    public static StudyGroup currentG;
+    public static List<String> eventids = new ArrayList<>();
 
 
     @Override
@@ -78,15 +80,18 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                 final ListView list = (ListView) findViewById(edu.sc.cse.R.id.listView);
 
                 String[] lv_arr = {};
-
+                ArrayList<String> tempid = new ArrayList<>();
                 ArrayList<String> grooupD = new ArrayList<>();
+                final ArrayList<StudyGroup> groupA = new ArrayList<StudyGroup>();
                 for (DataSnapshot areaSnapshot: snapshot.getChildren()) {
                     final StudyGroup temp = areaSnapshot.getValue(StudyGroup.class);
-                    studygroups.add(temp);
-                    setid(temp.getEventid());
+                    groupA.add(temp);
+                    tempid.add(temp.getEventid());
+
                     grooupD.add(temp.getCourse() + "\n" + temp.getDate() + "\t\t\t" + temp.getTime() + "\n" + temp.getLocation() + "\nHost: " + temp.getHost());
                 }
 
+                setidlist(tempid);
                 // Puts items from database into a list
                 lv_arr = new String[grooupD.size()];
                 lv_arr = grooupD.toArray(lv_arr);
@@ -98,6 +103,12 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     public void onItemClick(AdapterView<?> myAdapter, View myView, int pos, long mylng) {
                         String selectedFromList =(list.getItemAtPosition(pos).toString());
+                        currentG = groupA.get(pos);
+
+                        Toast.makeText(SearchScreen.this,
+//                                            "You have joined StudyGroup! " + course + "\n" + "Hosted by: "+group[4], Toast.LENGTH_LONG).show();//changed from group[6] to group[4]
+//                                }})Toast.makeText(SearchScreen.this,
+                                "currentg is" + currentG.getEventid(), Toast.LENGTH_LONG).show();
                         joinGroup(selectedFromList,LoginScreen.email);
 
                         // this is your selected item
@@ -156,16 +167,16 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
     {
         final String[] group = groupD.split("\\s+");
 
-        final String course = group[0] + " " + group[1];//change from group[1] and group[2] to group[0] and group[1]
-        System.out.println("test"+course);
+        //final String course = group[0] + " " + group[1];//change from group[1] and group[2] to group[0] and group[1]
+        //System.out.println("test"+course);
 //TODO
         //Log.d(TAG, "ATTENTION!!!!!: "+ group[0] + " " + group[1] + " " + group[2] + " " + group[3] + " " + group[4]);
 
-        final DatabaseReference myRef = database.getReference("StudyGroup");
+        final DatabaseReference myRef = database.getReference("StudyGroup/"+"/members");
 
          ArrayList<String> test2 = new ArrayList<>();
-
-        myRef.child(eventid+"/members").addListenerForSingleValueEvent(new ValueEventListener() {
+        Log.d("ZIGG", currentG.getEventid());
+        myRef.child(currentG.getEventid() + "/members").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
 //TODO error is with temp!!!!!
@@ -182,14 +193,14 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
                 else {
                     new AlertDialog.Builder(SearchScreen.this)
                             .setTitle("Confirmation")
-                            .setMessage("Are you sure you want to join " +course +"?")
+                            .setMessage("Are you sure you want to join " +currentG.getCourse() +"?")
                             .setIcon(R.mipmap.ic_launcher)
                             .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     temp.add(LoginScreen.email);
                                     final ArrayList<String> m = temp;
-                                    myRef.child(eventid+"/members").setValue(temp);
+                                    myRef.child(currentG.getEventid()+"/members").setValue(temp);
                                     Toast.makeText(SearchScreen.this,
 //                                            "You have joined StudyGroup! " + course + "\n" + "Hosted by: "+group[4], Toast.LENGTH_LONG).show();//changed from group[6] to group[4]
 //                                }})Toast.makeText(SearchScreen.this,
@@ -241,10 +252,12 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
     }
 
 */
-    public void setid(String id)
+    public void setid(int i)
     {
-        eventid = id;
+        eventid = eventids.get(i);
     }
+    public void setidlist(ArrayList<String> t){ eventids = t;}
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

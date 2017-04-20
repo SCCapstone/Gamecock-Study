@@ -104,7 +104,7 @@ public class EventScreen extends AppCompatActivity implements View.OnClickListen
 
         ArrayList<String> test2 = new ArrayList<>();
 
-        myRef.child( MyEvents.currentG.getCourse() +"/members").addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.child( MyEvents.currentG.getEventid() +"/members").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
 //TODO error is with temp!!!!!
@@ -122,7 +122,7 @@ public class EventScreen extends AppCompatActivity implements View.OnClickListen
                                 public void onClick(DialogInterface dialog, int whichButton) {
                                     temp.remove(LoginScreen.email);
                                     final ArrayList<String> m = temp;
-                                    myRef.child(MyEvents.currentG.getCourse()+"/members").setValue(temp);
+                                    myRef.child(MyEvents.currentG.getEventid()+"/members").setValue(temp);
                                     startActivity(new Intent(EventScreen.this, MyEvents.class));
                                    // Toast.makeText(EventScreen.this,
                                     //        "You have joined StudyGroup: " + course + "\n" + "Hosted by: "+group[4], Toast.LENGTH_LONG).show();//changed from group[6] to group[4]
