@@ -127,8 +127,8 @@ public class EventScreen extends AppCompatActivity implements View.OnClickListen
                                     String r = (t.equals(t2)) + "";
 
 
-                                    Toast.makeText(EventScreen.this,
-                                                  r , Toast.LENGTH_LONG).show();//changed from group[6] to group[4]
+                                    //Toast.makeText(EventScreen.this,
+                                                 // r , Toast.LENGTH_LONG).show();//changed from group[6] to group[4]
                                     if(t.equals(t2))
                                     {
                                         myRef.child(MyEvents.currentG.getEventid()).removeValue();

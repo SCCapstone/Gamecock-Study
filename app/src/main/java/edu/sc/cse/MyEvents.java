@@ -28,6 +28,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import static android.graphics.Typeface.BOLD;
 import static android.widget.AbsListView.OnScrollListener.SCROLL_STATE_IDLE;
 
 
@@ -79,6 +80,7 @@ public class MyEvents extends AppCompatActivity
                 lv_arr = grooupD.toArray(lv_arr);
                 list.setAdapter(new ArrayAdapter<String>(MyEvents.this,
                         android.R.layout.simple_list_item_1, lv_arr));
+                //lv_arr.setTypeface(null, Typeface.BOLD_ITALIC);
 
 
                 list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
