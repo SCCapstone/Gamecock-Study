@@ -172,11 +172,11 @@ public class SearchScreen extends AppCompatActivity implements View.OnClickListe
 //TODO
         //Log.d(TAG, "ATTENTION!!!!!: "+ group[0] + " " + group[1] + " " + group[2] + " " + group[3] + " " + group[4]);
 
-        final DatabaseReference myRef = database.getReference("StudyGroup/"+"/members");
+        final DatabaseReference myRef = database.getReference("StudyGroup/"+ currentG.getEventid()+"/members");
 
          ArrayList<String> test2 = new ArrayList<>();
         Log.d("ZIGG", currentG.getEventid());
-        myRef.child(currentG.getEventid() + "/members").addListenerForSingleValueEvent(new ValueEventListener() {
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
 //TODO error is with temp!!!!!
